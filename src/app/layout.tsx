@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { MenuProvider, QueryProvider } from "@/app/providers";
 import { Lexend, Red_Hat_Mono } from "next/font/google";
-import { Tabs } from "@/components";
 
 export const metadata: Metadata = {
   title: "Caleb Harris",
