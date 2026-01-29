@@ -40,7 +40,7 @@ export default function ResumePage() {
                 Download
               </Link>
               <Link
-                href="/Resume.pdf"
+                href="/CalebHarris.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-primary-500 px-4 py-2 text-sm font-bold text-white hover:bg-primary-600 transition-colors"
@@ -55,7 +55,7 @@ export default function ResumePage() {
         <div className="flex-1 overflow-hidden p-4 md:p-8">
           <div className="h-full w-full overflow-hidden rounded-xl border border-border/30 bg-black/10">
             <object
-              data="/Resume.pdf#view=FitH&toolbar=0&navpanes=0"
+              data="/CalebHarris.pdf#view=FitH&toolbar=0&navpanes=0"
               type="application/pdf"
               className="h-full w-full"
             >
@@ -65,7 +65,7 @@ export default function ResumePage() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Link
-                    href="/Resume.pdf"
+                    href="/CalebHarris.pdf"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-primary-500 px-4 py-2 text-sm font-bold text-primary-foreground hover:bg-primary-600 transition-colors"
@@ -74,7 +74,7 @@ export default function ResumePage() {
                     Open PDF
                   </Link>
                   <Link
-                    href="/Resume.pdf"
+                    href="/CalebHarris.pdf"
                     download
                     className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-black/30 px-4 py-2 text-sm font-bold text-foreground hover:bg-black/40 transition-colors"
                   >
