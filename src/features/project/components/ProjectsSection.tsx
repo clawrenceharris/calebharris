@@ -20,11 +20,8 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
     return (
       <>
         <h2 className="mb-8">My Projects</h2>
-
         <ProjectFilters onFilterChange={setFilters} filters={filters} />
-
-        <div className="grid  grid-cols-[repeat(auto-fill,minmax(350px,1fr))] py-7  gap-4">
-          {" "}
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] py-7  gap-4">
           <Skeleton className="w-full h-70 rounded-xl" />
           <Skeleton className="w-full h-70 rounded-xl" />
           <Skeleton className="w-full h-70 rounded-xl" />
@@ -53,8 +50,9 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
   return (
     <>
       <h2 className="sticky text-4xl font-bold text-white mb-8">My Projects</h2>
-      <ProjectFilters onFilterChange={setFilters} filters={filters} />
-
+      <div className="sticky top-10 z-9">
+        <ProjectFilters onFilterChange={setFilters} filters={filters} />
+      </div>
       <ul
         ref={listRef}
         className="grid  grid-cols-[repeat(auto-fill,minmax(350px,1fr))] py-7  gap-4"

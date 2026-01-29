@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Calendar, Mail, MapPin, Menu } from "lucide-react";
+import { Calendar, Mail, MapPin, Menu, NotebookPen } from "lucide-react";
 import {
   Button,
   Drawer,
@@ -79,15 +79,17 @@ function SidebarContent({ isMobile }: { isMobile?: boolean }) {
               description="chlaw104@gmail.com"
             />
           </Link>
-          <InfoItem
-            icon={<Calendar />}
-            title={"Birthday"}
-            description={"Nov 30, 2001"}
-          />
+          <Link href="/resume">
+            <InfoItem
+              icon={<NotebookPen />}
+              title="Resume"
+              description="View Resume"
+            />
+          </Link>
           <InfoItem
             icon={<MapPin />}
-            title={"Location"}
-            description={"Glen Burnie, MD"}
+            title="Location"
+            description="Glen Burnie, MD"
           />
         </ItemGroup>
       </div>
@@ -112,7 +114,7 @@ export function AppSidebar({ className }: { className?: string }) {
         <Drawer direction="left">
           <DrawerTrigger asChild>
             <Button
-              className="fixed w-full justify-baseline px-3 bg-black/30 backdrop-blur-2xl top-0 rounded-none left-0 z-999"
+              className="hover:text-primary-400 fixed w-full justify-baseline px-3 bg-black/30 backdrop-blur-2xl top-0 rounded-none left-0 z-999"
               size="icon"
               variant="outline"
             >

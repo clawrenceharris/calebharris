@@ -6,7 +6,7 @@ export function AboutSection() {
   return (
     <div className="space-y-7">
       <section>
-        <h2 className="mb-5 uppercase">About me</h2>
+        <h2 className="mb-5">About Me</h2>
 
         <p className="text-sm leading-6 md:text-md text-[#ADB7BE]">
           I am a motivated Computer Science student with hands-on experience
@@ -22,7 +22,7 @@ export function AboutSection() {
       </section>
 
       <section>
-        <h2 className="mb-5 uppercase">Skills</h2>
+        <h2 className="mb-5">Skills</h2>
         <SkillsSection />
       </section>
     </div>
