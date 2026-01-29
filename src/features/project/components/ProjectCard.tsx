@@ -51,7 +51,7 @@ export function ProjectCard({ project, onProjectClick }: ProjectCardProps) {
 
         <CardContent className="text-white rounded-b-xl  pb-5 px-4">
           <div className="space-y-3">
-            <div className="flex flex-col md:flex-row items-center justify-between ">
+            <div className="flex flex-col md:flex-row md:items-center justify-between ">
               <CardTitle className="text-xl font-semibold">
                 {project.title}
               </CardTitle>
