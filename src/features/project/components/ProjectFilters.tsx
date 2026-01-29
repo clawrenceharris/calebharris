@@ -27,7 +27,7 @@ export const ProjectFilters = ({
   const tags: ProjectTagType[] = ["Game", "UI/UX", "Website"];
 
   return (
-    <div className="text-white p-1 gap-1 w-full max-w-lg mx-auto flex bg-black/20 backdrop-blur-lg border-2 border-muted-foreground/50 rounded-full  flex-row items-center mb-6">
+    <div className="text-white p-1 gap-1 w-full max-w-lg mx-auto flex bg-black/20 backdrop-blur-lg border border-muted/50 rounded-full  flex-row items-center mb-6">
       {tags.map((tag) => (
         <ProjectTag
           key={tag}

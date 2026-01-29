@@ -43,7 +43,7 @@ export default function ResumePage() {
                 href="/Resume.pdf"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-primary-500 px-4 py-2 text-sm font-bold text-primary-foreground hover:bg-primary-600 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-primary-500 px-4 py-2 text-sm font-bold text-white hover:bg-primary-600 transition-colors"
               >
                 <ExternalLink className="size-4" />
                 Open

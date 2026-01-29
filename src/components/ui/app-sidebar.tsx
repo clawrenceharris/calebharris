@@ -106,7 +106,7 @@ export function AppSidebar({ className }: { className?: string }) {
       {!isMobile ? (
         <aside
           className={cn(
-            "shadow-md h-full p-4  md:p-5 md:py-7 w-full md:min-w-70  shadow-black/50 flex-1  bg-primary-foreground rounded-2xl flex  text-white justify-between flex-col",
+            "shadow-md h-full p-4 border-muted border md:p-5 md:py-7 w-full md:min-w-70  shadow-black/50 flex-1  bg-primary-foreground rounded-2xl flex  text-white justify-between flex-col",
             className,
           )}
         >

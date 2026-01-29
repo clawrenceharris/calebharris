@@ -37,11 +37,11 @@ export default function HomePage() {
         if (isMenuOpen) closeMenu();
       }}
       defaultValue="about"
-      className="w-full h-full flex flex-row "
+      className="w-full h-full flex gap-6 flex-row "
     >
       <AppSidebar />
 
-      <main className="shadow-md flex-1 w-full shadow-black/50 bg-primary-foreground rounded-2xl h-full overflow-y-auto">
+      <main className="shadow-md border-muted border flex-1 w-full shadow-black/50 bg-primary-foreground rounded-2xl h-full overflow-y-auto">
         {!isMobile && <Navbar />}
         <TabsContent className="container" value="about">
           <AboutSection />
