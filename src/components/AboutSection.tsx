@@ -1,38 +1,30 @@
 import Image from "next/image";
 import React from "react";
-import { ScrollArea } from ".";
+import { ScrollArea, SkillsSection } from ".";
 
 export function AboutSection() {
   return (
-    <ScrollArea>
-      <h2 className="sticky top-0 text-3xl font-bold text-white">About Me</h2>
+    <div className="space-y-7">
+      <section>
+        <h2 className="mb-5 uppercase">About me</h2>
 
-      <div className=" flex flex-col lg:flex-row gap-8 items-center">
-        <Image
-          src={"/images/about-image.png"}
-          width={300}
-          height={300}
-          alt="bitmoji"
-          className="rounded-lg"
-        />
-        <p className="text-sm md:text-md text-[#ADB7BE]">
-          A detail-oriented developer and student with strong interest in
-          building code that doesn&apos;t just &quot;work&quot;, but can grow to
-          do even more than originally expected.
-          <br />
-          <br />
-          My interests began with a fascination for invention which eventually
-          drove me to focus my time developing websites, apps and games.
-          I&apos;ve developed most my skills in C#, Java, JavaScript, HTML and
-          CSS.
-          <br />
-          <br />
-          When given any project, my creative process always starts with a
-          user-first approach—every design decision I make is aimed towards the
-          end user to deliver intuitive, visually compelling, and effective
-          technical solutions.
+        <p className="text-sm leading-6 md:text-md text-[#ADB7BE]">
+          I am a motivated Computer Science student with hands-on experience
+          through a range of personal and academic projects. Driven by curiosity
+          and a passion for technology, I've cultivated strong skills in C#,
+          Unity, React, and other JavaScript frameworks. My approach to every
+          project is user-focused, prioritizing intuitive and visually engaging
+          solutions that effectively address real-world challenges. I thrive on
+          learning new tools and collaborating to turn ideas into impactful
+          results, and I am eager to bring my energy and dedication to a
+          professional team.
         </p>
-      </div>
-    </ScrollArea>
+      </section>
+
+      <section>
+        <h2 className="mb-5 uppercase">Skills</h2>
+        <SkillsSection />
+      </section>
+    </div>
   );
 }

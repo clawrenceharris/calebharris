@@ -1,11 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
 @theme inline {
-  --font-primary: var(--font-red-hat-mono), ui-sans-serif, system-ui, sans-serif;
-  --font-secondary:var(--font-lexend);
-  
+  --font-primary:
+    var(--font-red-hat-mono), ui-sans-serif, system-ui, sans-serif;
+  --font-secondary: var(--font-lexend);
+
   --color-primary-50: var(--primary-50);
   --color-primary-100: var(--primary-100);
   --color-primary-200: var(--primary-200);
@@ -66,44 +66,41 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-
 }
 
-
 @layer base {
-  
-  body {
-    
-    background-image: url("/images/bg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  
+  * {
+    @apply selection:bg-primary-400! selection:text-white!;
   }
- 
-  p, li{
-    @apply font-secondary
+  p,
+  li {
+    @apply font-secondary;
   }
-  main{
-    @apply flex flex-col h-dvh
+  h2 {
+    @apply text-xl! font-bold;
   }
-
+  main {
+    @apply flex flex-col h-dvh;
+  }
 }
 
 @layer components {
-
-  label {
-    @apply font-sans font-bold;
+  .item-elevated {
+    @apply cursor-pointer
+    border-[rgb(27,27,27)] border
+ relative inline-flex items-center
+ rounded-full pl-0.5 pt-0.5
+ bg-[rgb(29,29,29)]
+ text-sm 
+ shadow-md
+ bg-[linear-gradient(145deg,rgba(255,255,255,0.35),rgba(255,255,255,0.10)_35%,rgb(29,29,29))];
   }
 
   .container {
-    @apply p-4 md:px-8 flex-1
-
+    @apply p-4 md:px-8 flex-1;
   }
 }
 :root {
-
   --primary-50: #caf4ff;
   --primary-100: #b0edfc;
   --primary-200: #94eaff;
@@ -137,12 +134,12 @@
   --accent-800: #9a3412;
   --accent-900: #7c2d12;
 
-  --background: #1a1a1a;
+  --background: #121212;
   --foreground: oklch(0.985 0 0);
   --secondary-foreground: rgb(43, 44, 44);
- 
+
   --accent-foreground: #121212;
-  --primary-foreground: oklch(0.21 0.006 285.885);
+  --primary-foreground: rgb(30 30 31);
 
   /* Status */
   --success-100: #dcfce7;
@@ -177,7 +174,4 @@
   --spacing-2xl: 8rem;
   --spacing-3xl: 16rem;
   --spacing-4xl: 32rem;
-  
- 
 }
-

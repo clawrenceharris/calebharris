@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { QueryProvider } from "@/app/providers";
+import { FormpsreeProviderClient, QueryProvider } from "@/app/providers";
 import { Lexend, Red_Hat_Mono } from "next/font/google";
 import { Tabs } from "@/components";
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,18 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
-      <body className={`font-primary h-dvh bg-background overflow-hidden text-foreground gap-3 p-10 pt-15 ${lexendGiga.variable} ${redHatMono.variable}`}>
-          
-        <Tabs defaultValue="about" className='w-full h-full flex flex-row '>
-          
-     
-
-
-        <QueryProvider>
-
-              {children}
-        </QueryProvider>
+      <body
+        className={`font-primary h-dvh bg-background overflow-hidden text-foreground gap-3 p-10 pt-15 ${lexendGiga.variable} ${redHatMono.variable}`}
+      >
+        <Tabs defaultValue="about" className="w-full h-full flex flex-row ">
+          <FormpsreeProviderClient>
+            <QueryProvider>{children}</QueryProvider>
+          </FormpsreeProviderClient>
         </Tabs>
       </body>
     </html>
