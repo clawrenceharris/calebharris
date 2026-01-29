@@ -1,4 +1,4 @@
-import { tools } from "@/constants";
+import { tools } from "@/lib/constants";
 import { Skill } from "@/types";
 
 export const skills: Skill[] = [
@@ -28,7 +28,6 @@ export const skills: Skill[] = [
     skillLevel: 3,
   },
 
-  
   {
     id: "6",
     tool: tools.csharp,
@@ -60,13 +59,12 @@ export const skills: Skill[] = [
     tool: tools.redux,
     skillLevel: 3,
   },
- 
+
   {
     id: "12",
     tool: tools.photoshop,
     skillLevel: 4,
   },
- 
 
   {
     id: "13",
@@ -79,5 +77,4 @@ export const skills: Skill[] = [
     tool: tools.tailwind,
     skillLevel: 3,
   },
-  
 ];

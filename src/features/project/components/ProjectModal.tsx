@@ -10,7 +10,7 @@ import {
 import { ToolItem } from "@/components/ToolItem";
 import { Loader2 } from "lucide-react";
 import { useProject } from "@/features/project/hooks";
-import { tools } from "@/constants/tools";
+import { tools } from "@/lib/constants/tools";
 import Link from "next/link";
 import { MorphyButton } from "@/components/ui";
 import { BulletItem } from "@/features/project/domain";
@@ -26,62 +26,52 @@ export function ProjectModal({
   open,
   onOpenChange,
 }: ProjectModalProps) {
-  const {project, error, isLoading} = useProject(projectId)
+  const { project, error, isLoading } = useProject(projectId);
   if (isLoading) {
     return (
       <div className="flex justify-center items-center py-8">
-      <Loader2 className="animate-spin text-primary-500"/>
-    </div>
-      )
-    }
+        <Loader2 className="animate-spin text-primary-500" />
+      </div>
+    );
+  }
   if (error) {
-    return  (
+    return (
       <div className="flex justify-center items-center py-8">
         <p className="text-red-500">{error.message}</p>
       </div>
     );
   }
   if (!project) {
-    return  (
+    return (
       <div className="flex justify-center items-center py-8">
         <p>Project Not Found</p>
       </div>
     );
   }
-  
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="w-full  max-w-240 max-h-[90vh] overflow-y-auto bg-[#1a1a1a] text-white border-[#33353F]">
-      
+        <DialogHeader>
+          <DialogTitle className="text-3xl mb-2">{project.title}</DialogTitle>
+        </DialogHeader>
 
-            <DialogHeader>
-              <DialogTitle className="text-3xl mb-2">
-                {project.title}
-              </DialogTitle>
-            </DialogHeader>
-            
-            <div className="space-y-10">
-              {project.featuredImage  && (
-                <div className=" relative">
-                  <Image
-                    src={project.featuredImage}
-                    alt={project.title}
-                    width={1920}
-                    className="rounded-2xl"
-                    height={1080}
-                  />
-                </div>
+        <div className="space-y-10">
+          {project.featuredImage && (
+            <div className=" relative">
+              <Image
+                src={project.featuredImage}
+                alt={project.title}
+                width={1920}
+                className="rounded-2xl"
+                height={1080}
+              />
+            </div>
           )}
-         
 
-          
-        
           <div>
             <div className="space-y-5 bg-secondary-foreground p-4 rounded-2xl">
-
               <div className="space-y-3">
-
-              
                 <p className="text-muted-foreground text-nowrap italic">
                   {project.tagline}
                   {" | "}
@@ -92,73 +82,67 @@ export function ProjectModal({
                       {project.startYear} - {project.endYear}
                     </i>
                   )}
-              </p>
-              <span className="sr-only">Tools Used</span>
+                </p>
+                <span className="sr-only">Tools Used</span>
                 <div className="flex flex-wrap gap-2 ">
                   {project.tools.map((tool) => (
                     <ToolItem tool={tools[tool]} key={tools[tool].id} />
                   ))}
                 </div>
-                </div>
-                  <p className="text-foreground">{project.description}</p>
-               
-                  {project.demoLink && (
+              </div>
+              <p className="text-foreground">{project.description}</p>
+
+              {project.demoLink && (
                 <MorphyButton>
-
-              
-                  <Link
-                  
-                    target="_blank"
-                    href={project.demoLink}
-                  >
+                  <Link target="_blank" href={project.demoLink}>
                     Try it out!
-                    </Link>
-                  </MorphyButton>
+                  </Link>
+                </MorphyButton>
               )}
-             </div>
-            
-            
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-10 px-4 leading-loose " >
-                  <h5 className="mb-3 text-lg font-bold">Key Features</h5>
-                  <ul className="space-y-2 list-disc ">
-                    {(project.keyFeatures as BulletItem[]).map((item, index) => (
-                      <li key={index} className="text-[#ADB7BE]">
-                        <span className="font-bold">{item.title}</span>{": "}{item.description}
-                        </li>
-                    ))}
-                  </ul>
-
-                  <h5 className="mb-3 text-lg font-bold">My Contributions</h5>
-                  <ul className="space-y-2 list-disc">
-                    {(project.myContributions as BulletItem[]).map((item, index) => (
-                      <li key={index} className="text-[#ADB7BE]">
-                        <span className="font-bold0">{item.title}</span>{": "}{item.description}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                  <div className="space-y-4">
-                    {project.images.map((image, i) => (
-                      <Image
-                        key={i}
-                        src={image}
-                        alt={`${project.title} - Image ${i + 2}`}
-                        width={1920}
-                        height={1080}
-                        className="w-full h-auto rounded-lg"
-                      />
-                    ))}
-                  </div>
-             
-              </div>
             </div>
-         
-        
-        
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-10 px-4 leading-loose ">
+              <h5 className="mb-3 text-lg font-bold">Key Features</h5>
+              <ul className="space-y-2 list-disc ">
+                {(project.keyFeatures as BulletItem[]).map((item, index) => (
+                  <li key={index} className="text-[#ADB7BE]">
+                    <span className="font-bold">{item.title}</span>
+                    {": "}
+                    {item.description}
+                  </li>
+                ))}
+              </ul>
+
+              <h5 className="mb-3 text-lg font-bold">My Contributions</h5>
+              <ul className="space-y-2 list-disc">
+                {(project.myContributions as BulletItem[]).map(
+                  (item, index) => (
+                    <li key={index} className="text-[#ADB7BE]">
+                      <span className="font-bold0">{item.title}</span>
+                      {": "}
+                      {item.description}
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              {project.images.map((image, i) => (
+                <Image
+                  key={i}
+                  src={image}
+                  alt={`${project.title} - Image ${i + 2}`}
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto rounded-lg"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </DialogContent>
     </Dialog>
   );

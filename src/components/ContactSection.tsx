@@ -11,6 +11,7 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
+  Callout,
 } from "@/components";
 import { Controller, Form, useForm } from "react-hook-form";
 import { z } from "zod";
@@ -38,23 +39,27 @@ export function ContactSection() {
       message: "",
     },
   });
-  if (true) {
+  if (state.succeeded) {
     return (
-      <div className="flex gap-4 max-w-xl items-center bg-secondary-foreground px-5 py-3 rounded-xl">
-        <Check className="border-2 border-success-500 bg-success-100 text-success-500 size-11 p-1.5 rounded-full" />
-        <div>
-          <h2>Message sent!</h2>
-          <p>Thanks for reaching out! I'll be in touch with you soon.</p>
-        </div>
-      </div>
+      <>
+        <h2 className="text-2xl font-bold text-white mb-4">
+          Let&apos;s Connect
+        </h2>
+        <Callout
+          title="Message sent!"
+          icon={<Check />}
+          variant="success"
+          description="Thanks for reaching out! I'll be in touch with you soon."
+        />
+      </>
     );
   }
   return (
     <div className="grid md:grid-cols-2 gap-8">
       <div>
-        <h3 className="text-2xl font-bold text-white mb-4">
+        <h2 className="text-2xl font-bold text-white mb-4">
           Let&apos;s Connect
-        </h3>
+        </h2>
         <p className="text-[#ADB7BE] mb-6 max-w-md">
           I&apos;m currently looking for new opportunities. My inbox is always
           open. Whether you have a question or just want to say hi, feel free to

@@ -1,5 +1,5 @@
 import React from "react";
-import { skills } from "@/constants/skills";
+import { skills } from "@/lib/constants";
 import { Skill } from "@/components";
 
 export function SkillsSection() {
