@@ -6,10 +6,12 @@ import {
   ContactSection,
   Navbar,
   SkillsSection,
+  Tabs,
 } from "@/components";
 import { TabsContent } from "@/components/ui";
 import { ProjectModal, ProjectsSection } from "@/features/project/components";
 import { useIsMobile } from "@/hooks";
+import { useMenu } from "@/app/providers";
 
 export default function HomePage() {
   const isMobile = useIsMobile();
@@ -17,7 +19,7 @@ export default function HomePage() {
     null,
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const { closeMenu, isMenuOpen } = useMenu();
   const handleProjectClick = (projectId: string) => {
     setSelectedProjectId(projectId);
     setIsModalOpen(true);
@@ -30,7 +32,13 @@ export default function HomePage() {
     }
   };
   return (
-    <>
+    <Tabs
+      onValueChange={() => {
+        if (isMenuOpen) closeMenu();
+      }}
+      defaultValue="about"
+      className="w-full h-full flex flex-row "
+    >
       <AppSidebar />
 
       <main className="shadow-md flex-1 w-full shadow-black/50 bg-primary-foreground rounded-2xl h-full overflow-y-auto">
@@ -54,6 +62,6 @@ export default function HomePage() {
           />
         )}
       </main>
-    </>
+    </Tabs>
   );
 }

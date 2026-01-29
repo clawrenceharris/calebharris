@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { FormpsreeProviderClient, QueryProvider } from "@/app/providers";
+import { MenuProvider, QueryProvider } from "@/app/providers";
 import { Lexend, Red_Hat_Mono } from "next/font/google";
 import { Tabs } from "@/components";
 
@@ -30,11 +30,9 @@ export default function RootLayout({
       <body
         className={`font-primary h-dvh bg-background overflow-hidden text-foreground gap-3 p-4 pt-15 ${lexendGiga.variable} ${redHatMono.variable}`}
       >
-        <Tabs defaultValue="about" className="w-full h-full flex flex-row ">
-          <FormpsreeProviderClient>
-            <QueryProvider>{children}</QueryProvider>
-          </FormpsreeProviderClient>
-        </Tabs>
+        <MenuProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </MenuProvider>
       </body>
     </html>
   );

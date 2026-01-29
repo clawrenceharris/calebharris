@@ -97,7 +97,7 @@
   }
 
   .container {
-    @apply p-4 md:px-8 flex-1 relative;
+    @apply p-5 pt-10  md:px-8 flex-1;
   }
 }
 :root {

@@ -14,6 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-is-mobile";
+import { useMenu } from "@/app/providers";
 
 function SidebarContent({ isMobile }: { isMobile?: boolean }) {
   return (
@@ -98,6 +99,7 @@ function SidebarContent({ isMobile }: { isMobile?: boolean }) {
 }
 export function AppSidebar({ className }: { className?: string }) {
   const isMobile = useIsMobile();
+  const { isMenuOpen, openMenu, closeMenu, toggleMenu } = useMenu();
 
   return (
     <div>
@@ -111,7 +113,7 @@ export function AppSidebar({ className }: { className?: string }) {
           <SidebarContent />
         </aside>
       ) : (
-        <Drawer direction="left">
+        <Drawer open={isMenuOpen} onOpenChange={toggleMenu} direction="left">
           <DrawerTrigger asChild>
             <Button
               className="hover:text-primary-400 fixed w-full justify-baseline px-3 bg-black/30 backdrop-blur-2xl top-0 rounded-none left-0 z-999"
