@@ -50,7 +50,7 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
   return (
     <>
       <h2 className="sticky text-4xl font-bold text-white mb-8">My Projects</h2>
-      <div className="sticky top-10 z-9">
+      <div className="sticky md:relative md:top-0 top-10 z-9">
         <ProjectFilters onFilterChange={setFilters} filters={filters} />
       </div>
       <ul
