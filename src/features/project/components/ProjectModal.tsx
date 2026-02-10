@@ -14,6 +14,7 @@ import { tools } from "@/lib/constants/tools";
 import Link from "next/link";
 import { MorphyButton } from "@/components/ui";
 import { BulletItem } from "@/features/project/domain";
+import { BulletList } from "@/components";
 
 interface ProjectModalProps {
   projectId: string;
@@ -103,30 +104,13 @@ export function ProjectModal({
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-10 px-4 leading-loose ">
-              <h5 className="mb-3 text-lg font-bold">Key Features</h5>
-              <ul className="space-y-2 list-disc ">
-                {(project.keyFeatures as BulletItem[]).map((item, index) => (
-                  <li key={index} className="text-[#ADB7BE]">
-                    <span className="font-bold">{item.title}</span>
-                    {": "}
-                    {item.description}
-                  </li>
-                ))}
-              </ul>
+            <div className="space-y-10 px-4">
+              <BulletList heading="Key Features" items={project.keyFeatures} />
 
-              <h5 className="mb-3 text-lg font-bold">My Contributions</h5>
-              <ul className="space-y-2 list-disc">
-                {(project.myContributions as BulletItem[]).map(
-                  (item, index) => (
-                    <li key={index} className="text-[#ADB7BE]">
-                      <span className="font-bold0">{item.title}</span>
-                      {": "}
-                      {item.description}
-                    </li>
-                  ),
-                )}
-              </ul>
+              <BulletList
+                heading="My Contributions"
+                items={project.myContributions}
+              />
             </div>
 
             <div className="space-y-4">
