@@ -19,7 +19,7 @@ export function MenuProvider({ children }: { children: React.ReactNode }) {
     setIsMenuOpen(false);
   }, []);
   const toggleMenu = useCallback(() => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   }, []);
   return (
     <MenuContext.Provider

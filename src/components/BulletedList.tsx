@@ -13,7 +13,7 @@ export function BulletList({ heading, items }: BulletListProps) {
       <ul className="space-y-4 list-disc">
         {items.map((item, i) => (
           <li key={i} className="space-y-1">
-            <p className="font-bold text-neutral-100">{item.title}</p>
+            <p className="font-bold text-accent-foreground">{item.title}</p>
             <p className="text-sm text-neutral-400 leading-relaxed">
               {item.description}
             </p>

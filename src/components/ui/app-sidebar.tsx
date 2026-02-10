@@ -15,6 +15,9 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useMenu } from "@/app/providers";
+import { Sheet, SheetContent, SheetTrigger } from "./sheet";
+import { useOnClickOutside } from "@/hooks/use-on-click-outside";
+import { useRef } from "react";
 
 function SidebarContent({ isMobile }: { isMobile?: boolean }) {
   return (
@@ -99,35 +102,42 @@ function SidebarContent({ isMobile }: { isMobile?: boolean }) {
 }
 export function AppSidebar({ className }: { className?: string }) {
   const isMobile = useIsMobile();
-  const { isMenuOpen, openMenu, closeMenu, toggleMenu } = useMenu();
+  const { isMenuOpen, closeMenu, toggleMenu } = useMenu();
 
   return (
-    <div>
+    <Sheet open={isMenuOpen} onOpenChange={toggleMenu}>
       {!isMobile ? (
-        <aside
-          className={cn(
-            "shadow-md h-full p-4 border-muted border md:p-5 md:py-7 w-full md:min-w-70  shadow-black/50 flex-1  bg-primary-foreground rounded-2xl flex  text-white justify-between flex-col",
-            className,
-          )}
-        >
-          <SidebarContent />
-        </aside>
+        <div className="p-6 pt-15 pr-0 md:pt-6 flex-1">
+          <aside
+            className={cn(
+              "shadow-md h-full p-4 border-muted border md:p-5 md:py-7 w-full md:min-w-70  shadow-black/50   bg-primary-foreground rounded-2xl flex  text-white justify-between flex-col",
+              className,
+            )}
+          >
+            <SidebarContent />
+          </aside>
+        </div>
       ) : (
-        <Drawer open={isMenuOpen} onOpenChange={toggleMenu} direction="left">
-          <DrawerTrigger asChild>
-            <Button
-              className="hover:text-primary-400 fixed w-full justify-baseline px-3 bg-black/30 backdrop-blur-2xl top-0 rounded-none left-0 z-999"
-              size="icon"
-              variant="outline"
-            >
-              <Menu />
-            </Button>
-          </DrawerTrigger>
-          <DrawerContent className="z-9999 border-input p-4  bg-[#1a1a1a] ">
+        <>
+          <div className="fixed w-full border-b border-muted justify-baseline px-3 bg-primary-foreground top-0 rounded-none left-0">
+            <SheetTrigger asChild>
+              <Button
+                className="hover:bg-transparent"
+                size="icon"
+                variant="ghost"
+              >
+                <Menu />
+              </Button>
+            </SheetTrigger>
+          </div>
+          <SheetContent
+            side="left"
+            className="z-9999 border-input p-4  bg-[#1a1a1a] "
+          >
             <SidebarContent isMobile />
-          </DrawerContent>
-        </Drawer>
+          </SheetContent>
+        </>
       )}
-    </div>
+    </Sheet>
   );
 }
