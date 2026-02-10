@@ -105,11 +105,14 @@ export function ProjectModal({
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-10 px-4">
-              <BulletList heading="Key Features" items={project.keyFeatures} />
+              <BulletList
+                heading="Key Features"
+                items={project.keyFeatures as BulletItem[]}
+              />
 
               <BulletList
                 heading="My Contributions"
-                items={project.myContributions}
+                items={project.myContributions as BulletItem[]}
               />
             </div>
 
