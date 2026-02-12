@@ -15,6 +15,11 @@ export type UnityGameProps = {
    */
   buildName?: string;
   /**
+   * Folder name under `public/unity/<gameId>/Build/...`
+   * Example: `build` -> assets should be served from `/unity/blobs/build/...`
+   */
+  buildSubpath?: string;
+  /**
    * If your export uses `.unityweb` files (common when compression is enabled),
    * keep this `true`. If your files are plain `.data/.wasm`, set `false`.
    */
@@ -27,8 +32,11 @@ const UnityGame = ({
   buildName = "Build",
   compressed = true,
   className,
+  ...props
 }: UnityGameProps) => {
-  const buildBase = `/unity/${gameId}/Build/${buildName}`;
+  const buildSubpath = props.buildSubpath ? `/${props.buildSubpath}` : "";
+
+  const buildBase = `/unity/${gameId}/Build${buildSubpath}/${buildName}`;
 
   const dataUrl = compressed
     ? `${buildBase}.data.unityweb`

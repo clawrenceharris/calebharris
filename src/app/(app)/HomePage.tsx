@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useCallback, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import {
   AboutSection,
   AppSidebar,
   ContactSection,
   Navbar,
-  SkillsSection,
   Tabs,
 } from "@/components";
 import { TabsContent } from "@/components/ui";
@@ -13,13 +15,27 @@ import { ProjectModal, ProjectsSection } from "@/features/project/components";
 import { useIsMobile } from "@/hooks";
 import { useMenu } from "@/app/providers";
 
+const VALID_TABS = ["about", "projects", "contact"] as const;
+type TabValue = (typeof VALID_TABS)[number];
+
+function isValidTab(value: string | null): value is TabValue {
+  return value !== null && VALID_TABS.includes(value as TabValue);
+}
+
 export default function HomePage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const isMobile = useIsMobile();
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
     null,
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { closeMenu, isMenuOpen } = useMenu();
+
+  const activeTab: TabValue = isValidTab(searchParams.get("tab"))
+    ? (searchParams.get("tab") as TabValue)
+    : "about";
+
   const handleProjectClick = (projectId: string) => {
     setSelectedProjectId(projectId);
     setIsModalOpen(true);
@@ -31,12 +47,28 @@ export default function HomePage() {
       setSelectedProjectId(null);
     }
   };
+
+  const handleTabChange = useCallback(
+    (value: string) => {
+      if (isValidTab(value)) {
+        if (isMenuOpen) closeMenu();
+        const params = new URLSearchParams(searchParams.toString());
+        if (value === "about") {
+          params.delete("tab");
+        } else {
+          params.set("tab", value);
+        }
+        const query = params.toString();
+        router.replace(query ? `?${query}` : "/", { scroll: false });
+      }
+    },
+    [isMenuOpen, closeMenu, searchParams, router],
+  );
+
   return (
     <Tabs
-      onValueChange={() => {
-        if (isMenuOpen) closeMenu();
-      }}
-      defaultValue="about"
+      value={activeTab}
+      onValueChange={handleTabChange}
       className="w-full h-full flex flex-row"
     >
       <AppSidebar />

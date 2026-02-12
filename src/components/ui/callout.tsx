@@ -12,7 +12,7 @@ interface CalloutProps {
   icon?: React.ReactNode;
   title: string;
   description?: string;
-  variant?: "info" | "success" | "destructive";
+  variant?: "info" | "success" | "destructive" | "warning";
 }
 export function Callout({
   variant = "info",
@@ -34,6 +34,9 @@ export function Callout({
               : "",
             variant === "destructive"
               ? " border-destructive-500 bg-destructive-100 text-destructive-500"
+              : "",
+            variant === "warning"
+              ? " border-accent-500 bg-accent-100 text-accent-500"
               : "",
           )}
         >

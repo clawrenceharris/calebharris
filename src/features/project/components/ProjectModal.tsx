@@ -95,9 +95,7 @@ export function ProjectModal({
 
               {project.demoLink && (
                 <MorphyButton>
-                  <Link target="_blank" href={project.demoLink}>
-                    Try it out!
-                  </Link>
+                  <Link href={`/try-it-out/${project.id}`}>Try it out!</Link>
                 </MorphyButton>
               )}
             </div>

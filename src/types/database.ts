@@ -28,6 +28,7 @@ export type Database = {
           my_contributions: Json
           project_tags: Database["public"]["Enums"]["project_tag"][]
           project_type: Database["public"]["Enums"]["project_type"] | null
+          slug: string
           start_year: number | null
           tagline: string
           title: string
@@ -47,6 +48,7 @@ export type Database = {
           my_contributions?: Json
           project_tags?: Database["public"]["Enums"]["project_tag"][]
           project_type?: Database["public"]["Enums"]["project_type"] | null
+          slug?: string
           start_year?: number | null
           tagline?: string
           title?: string
@@ -66,6 +68,7 @@ export type Database = {
           my_contributions?: Json
           project_tags?: Database["public"]["Enums"]["project_tag"][]
           project_type?: Database["public"]["Enums"]["project_type"] | null
+          slug?: string
           start_year?: number | null
           tagline?: string
           title?: string

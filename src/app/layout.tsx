@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`font-primary h-dvh bg-background overflow-hidden text-foreground ${lexendGiga.variable} ${redHatMono.variable}`}
+        className={`font-primary h-dvh bg-background overflow-hidden p-4 text-foreground ${lexendGiga.variable} ${redHatMono.variable}`}
       >
         <MenuProvider>
           <QueryProvider>{children}</QueryProvider>
