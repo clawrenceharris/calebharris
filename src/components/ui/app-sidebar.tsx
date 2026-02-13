@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
 import { Mail, MapPin, Menu, NotebookPen } from "lucide-react";
-import { Button, DrawerTitle, InfoItem, ItemGroup, Navbar } from "@/components";
+import { Button, InfoItem, ItemGroup, Navbar } from "@/components";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useMenu } from "@/app/providers";
-import { Sheet, SheetContent, SheetTrigger } from "./sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./sheet";
 import TypingText from "./typing-text";
 
 function SidebarContent({ isMobile }: { isMobile?: boolean }) {
@@ -24,16 +24,27 @@ function SidebarContent({ isMobile }: { isMobile?: boolean }) {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute bottom-0 right-0 bg-primary-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold border-2 border-[#1a1a1a]">
+          <div className="absolute bottom-0 right-5 bg-primary-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold border-2 border-[#1a1a1a]">
             CH
           </div>
         </div>
         <div className="text-2xl font-bold mt-2 text-center">
           {isMobile ? (
-            <DrawerTitle>Caleb Harris</DrawerTitle>
+            <SheetTitle>
+              <TypingText
+                text="Caleb Harris"
+                startOnVisible
+                showCursor={false}
+              />
+            </SheetTitle>
           ) : (
-            <TypingText role="heading" text="Caleb Harris" startOnVisible />
-          )}{" "}
+            <TypingText
+              role="heading"
+              text="Caleb Harris"
+              startOnVisible
+              showCursor={false}
+            />
+          )}
         </div>
 
         {/* Social Links */}
