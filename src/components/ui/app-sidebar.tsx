@@ -1,23 +1,12 @@
 "use client";
 import Image from "next/image";
-import { Calendar, Mail, MapPin, Menu, NotebookPen } from "lucide-react";
-import {
-  Button,
-  Drawer,
-  DrawerContent,
-  DrawerTitle,
-  DrawerTrigger,
-  InfoItem,
-  ItemGroup,
-  Navbar,
-} from "@/components";
+import { Mail, MapPin, Menu, NotebookPen } from "lucide-react";
+import { Button, DrawerTitle, InfoItem, ItemGroup, Navbar } from "@/components";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useMenu } from "@/app/providers";
 import { Sheet, SheetContent, SheetTrigger } from "./sheet";
-import { useOnClickOutside } from "@/hooks/use-on-click-outside";
-import { useRef } from "react";
 import TypingText from "./typing-text";
 
 function SidebarContent({ isMobile }: { isMobile?: boolean }) {
@@ -77,11 +66,11 @@ function SidebarContent({ isMobile }: { isMobile?: boolean }) {
       <div>
         {/* Contact Information */}
         <ItemGroup className="flex gap-3 flex-col">
-          <Link href="mailto:chlaw104@gmail.com">
+          <Link href="mailto:clawrenceharris@gmail.com">
             <InfoItem
               title="Email"
               icon={<Mail />}
-              description="chlaw104@gmail.com"
+              description="clawrenceharris@gmail.com"
             />
           </Link>
           <Link href="/resume">
@@ -103,7 +92,7 @@ function SidebarContent({ isMobile }: { isMobile?: boolean }) {
 }
 export function AppSidebar({ className }: { className?: string }) {
   const isMobile = useIsMobile();
-  const { isMenuOpen, closeMenu, toggleMenu } = useMenu();
+  const { isMenuOpen, toggleMenu } = useMenu();
 
   return (
     <Sheet open={isMenuOpen} onOpenChange={toggleMenu}>
