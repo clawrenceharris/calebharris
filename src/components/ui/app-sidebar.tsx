@@ -18,6 +18,7 @@ import { useMenu } from "@/app/providers";
 import { Sheet, SheetContent, SheetTrigger } from "./sheet";
 import { useOnClickOutside } from "@/hooks/use-on-click-outside";
 import { useRef } from "react";
+import TypingText from "./typing-text";
 
 function SidebarContent({ isMobile }: { isMobile?: boolean }) {
   return (
@@ -42,7 +43,7 @@ function SidebarContent({ isMobile }: { isMobile?: boolean }) {
           {isMobile ? (
             <DrawerTitle>Caleb Harris</DrawerTitle>
           ) : (
-            <h2>Caleb Harris</h2>
+            <TypingText role="heading" text="Caleb Harris" startOnVisible />
           )}{" "}
         </div>
 

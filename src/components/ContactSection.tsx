@@ -55,7 +55,7 @@ export function ContactSection() {
     );
   }
   return (
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid lg:grid-cols-2 gap-3 lg:gap-7">
       <div>
         <h2 className="text-2xl font-bold text-white mb-4">
           Let&apos;s Connect
@@ -71,7 +71,7 @@ export function ContactSection() {
           id="contact-form"
           control={form.control}
           // Ensure Formspree receives the event as expected (react-hook-form gives values not event!)
-          onSubmit={async (e) => {
+          onSubmit={async () => {
             // Let react-hook-form handle validation and gathering values
             await form.handleSubmit((values) => handleSubmit(values))();
           }}

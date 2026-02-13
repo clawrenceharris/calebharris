@@ -73,26 +73,28 @@ export default function HomePage() {
     >
       <AppSidebar />
       <div className="w-full h-full p-6 pt-15 md:pt-6">
-        <main className="shadow-md border-muted border flex-1 w-full shadow-black/50 bg-primary-foreground rounded-2xl h-full overflow-y-auto">
-          {!isMobile && <Navbar />}
-          <TabsContent className="container" value="about">
-            <AboutSection />
-          </TabsContent>
+        <main className="shadow-md border-muted border flex-1 w-full shadow-black/50 bg-primary-foreground rounded-2xl h-full">
+          <div className="overflow-y-auto">
+            {!isMobile && <Navbar />}
+            <TabsContent className="container" value="about">
+              <AboutSection />
+            </TabsContent>
 
-          <TabsContent className="container" value="projects">
-            <ProjectsSection onProjectClick={handleProjectClick} />
-          </TabsContent>
+            <TabsContent className="container" value="projects">
+              <ProjectsSection onProjectClick={handleProjectClick} />
+            </TabsContent>
 
-          <TabsContent className="container" value="contact">
-            <ContactSection />
-          </TabsContent>
-          {selectedProjectId && (
-            <ProjectModal
-              projectId={selectedProjectId}
-              open={isModalOpen}
-              onOpenChange={handleModalClose}
-            />
-          )}
+            <TabsContent className="container" value="contact">
+              <ContactSection />
+            </TabsContent>
+            {selectedProjectId && (
+              <ProjectModal
+                projectId={selectedProjectId}
+                open={isModalOpen}
+                onOpenChange={handleModalClose}
+              />
+            )}
+          </div>
         </main>
       </div>
     </Tabs>

@@ -6,3 +6,4 @@ export * from "./Skill";
 export * from "./InfoItem";
 export * from "./ToolItem";
 export * from "./BulletedList";
+export * from "./Modal";

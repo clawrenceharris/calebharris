@@ -19,7 +19,7 @@ export function ProjectCard({ project, onProjectClick }: ProjectCardProps) {
   };
 
   return (
-    <button className="w-full h-[300px] rounded-xl" onClick={handleClick}>
+    <button className="w-full h-75 rounded-xl" onClick={handleClick}>
       <Card
         className="p-0 relative cursor-pointer h-full text-left"
         role="button"
@@ -43,7 +43,7 @@ export function ProjectCard({ project, onProjectClick }: ProjectCardProps) {
                   "object-cover transition-opacity duration-300",
                   isImageLoaded ? "opacity-100" : "opacity-0",
                 ].join(" ")}
-                onLoadingComplete={() => setIsImageLoaded(true)}
+                onLoad={() => setIsImageLoaded(true)}
               />
             </>
           )}
