@@ -15,10 +15,7 @@ export default function ResumePage() {
         <header className="shrink-0 px-4 py-4 md:px-8 md:py-6 border-b border-border/30 bg-primary-foreground/70 backdrop-blur-md">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-secondary-foreground/60 px-3 py-2 text-sm font-medium text-foreground hover:bg-secondary-foreground/80 transition-colors"
-              >
+              <Link href="/" className="link-outline">
                 <ArrowLeft className="size-4" />
                 Back
               </Link>

@@ -77,4 +77,9 @@ export const skills: Skill[] = [
     tool: tools.tailwind,
     skillLevel: 3,
   },
+  {
+    id: "15",
+    tool: tools.figma,
+    skillLevel: 3,
+  },
 ];

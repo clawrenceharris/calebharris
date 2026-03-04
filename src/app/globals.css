@@ -99,6 +99,9 @@
   .container {
     @apply p-5 pt-10  md:px-8 flex-1;
   }
+  .link-outline {
+    @apply inline-flex items-center gap-2 rounded-full border border-border/30 bg-secondary-foreground/60 hover:bg-secondary-foreground/90 transition-colors;
+  }
 }
 :root {
   --primary-50: #caf4ff;

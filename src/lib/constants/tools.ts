@@ -32,13 +32,13 @@ export const tools: Record<string, Tool> = {
     imageUrl: "https://i.ibb.co/QkNnMjv/Git-icon-svg.png",
     name: "Git",
   },
- 
+
   react: {
     id: "7",
     name: "React",
     imageUrl: "https://i.ibb.co/5K9yz4L/react-logo.png",
   },
- 
+
   typescript: {
     id: "8",
     name: "TypeScript",
@@ -59,7 +59,7 @@ export const tools: Record<string, Tool> = {
     name: "HTML",
     imageUrl: "https://i.ibb.co/D5hb0tn/html-5.png",
   },
-  
+
   nextjs: {
     id: "12",
     name: "NextJS",
@@ -73,14 +73,15 @@ export const tools: Record<string, Tool> = {
   figma: {
     id: "14",
     name: "Figma",
-    imageUrl: "https://i.ibb.co/S0SKLF5/figma.png",
+    imageUrl:
+      "https://img.icons8.com/?size=100&id=W0YEwBDDfTeu&format=png&color=000000",
   },
   photoshop: {
     id: "15",
     name: "Photoshop",
     imageUrl: "https://i.ibb.co/hXvhCbh/photoshop-png-logo-3085.png",
   },
-  
+
   sass: {
     id: "16",
     name: "Sass",

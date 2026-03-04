@@ -126,12 +126,29 @@ export function ProjectModal({
               </div>
             </div>
             <p className="text-foreground">{project.description}</p>
-
-            {project.demoLink && (
-              <MorphyButton>
-                <Link href={`/try-it-out/${project.id}`}>Try it out!</Link>
-              </MorphyButton>
-            )}
+            <div className="flex gap-2 items-center">
+              {project.demoLink && (
+                <MorphyButton>
+                  <Link href={`/try-it-out/${project.id}`}>Try it out!</Link>
+                </MorphyButton>
+              )}
+              {project.github && (
+                <Link
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-outline size-10 p-0 flex items-center justify-center bg-black/10 hover:bg-primary-foreground border-white/10"
+                  href={project.github}
+                >
+                  <Image
+                    className="size-6"
+                    src="/icons/github-icon.svg"
+                    alt="GitHub"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
+              )}
+            </div>
           </div>
         </div>
 
