@@ -26,7 +26,7 @@ export function ElevatedItem({
         className,
       )}
     >
-      <span className="gap-2 h-full items-center flex bg-secondary-foreground p-2 rounded-full">
+      <span className="gap-2 h-full items-center flex bg-secondary-foreground py-2 px-4 rounded-full">
         {children}
       </span>
     </div>
