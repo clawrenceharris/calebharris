@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
-import { ProjectCard, ProjectFilters } from "@/features/project/components";
-import { useProjectFilters, useProjects } from "@/features/project/hooks";
+import { ProjectCard } from "@/features/project/components";
+import { useProjects } from "@/features/project/hooks";
 import { AlertTriangle } from "lucide-react";
 import { Callout, Skeleton } from "@/components";
 
@@ -14,7 +14,6 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
   const listRef = useRef(null);
   const { projects, isLoading, error } = useProjects();
 
-  const { filteredProjects, setFilters, filters } = useProjectFilters(projects);
 
   if (isLoading) {
     return (
@@ -54,7 +53,7 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
         ref={listRef}
         className="grid  grid-cols-[repeat(auto-fill,minmax(350px,1fr))] py-7  gap-4"
       >
-        {filteredProjects.map((project) => (
+        {projects.map((project) => (
           <>
          {project.active &&  <li key={project.id}>
             <ProjectCard project={project} onProjectClick={onProjectClick} />
