@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       projects: {
         Row: {
+          active: boolean | null
           created_at: string | null
           demo_link: string | null
           description: string
@@ -36,6 +37,7 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          active?: boolean | null
           created_at?: string | null
           demo_link?: string | null
           description?: string
@@ -56,6 +58,7 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          active?: boolean | null
           created_at?: string | null
           demo_link?: string | null
           description?: string

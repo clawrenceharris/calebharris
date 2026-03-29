@@ -19,7 +19,7 @@ export function ProjectCard({ project, onProjectClick }: ProjectCardProps) {
   };
 
   return (
-    <button className="w-full h-75 rounded-xl" onClick={handleClick}>
+    <button className="w-full h-75 border-muted  border-2 rounded-2xl" onClick={handleClick}>
       <Card
         className="p-0 relative cursor-pointer h-full text-left"
         role="button"

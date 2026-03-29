@@ -41,7 +41,7 @@ export function ContactSection() {
   });
   if (state.succeeded) {
     return (
-      <>
+      <section>
         <h2 className="text-2xl font-bold text-white mb-4">
           Let&apos;s Connect
         </h2>
@@ -51,11 +51,11 @@ export function ContactSection() {
           variant="success"
           description="Thanks for reaching out! I'll be in touch with you soon."
         />
-      </>
+      </section>
     );
   }
   return (
-    <div className="grid lg:grid-cols-2 gap-3 lg:gap-7">
+    <section className="grid lg:grid-cols-2 gap-3 lg:gap-7">
       <div>
         <h2 className="text-2xl font-bold text-white mb-4">
           Let&apos;s Connect
@@ -174,6 +174,6 @@ export function ContactSection() {
           </FieldGroup>
         </Form>
       </div>
-    </div>
+    </section>
   );
 }

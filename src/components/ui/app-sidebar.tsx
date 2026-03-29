@@ -108,10 +108,10 @@ export function AppSidebar({ className }: { className?: string }) {
   return (
     <Sheet open={isMenuOpen} onOpenChange={toggleMenu}>
       {!isMobile ? (
-        <div className="p-6 pt-15 pr-0 md:pt-6 flex-1">
+        <div className=" p-8 pr-0 md:pt-6 flex-1">
           <aside
             className={cn(
-              "shadow-md h-full p-4 border-muted border md:p-5 md:py-7 w-full md:min-w-70  shadow-black/50   bg-primary-foreground rounded-2xl flex  text-white justify-between flex-col",
+              "shadow-md h-full overflow-auto p-4 border-muted border md:p-5 md:py-7 w-full md:min-w-70  shadow-black/50   bg-primary-foreground rounded-2xl flex  text-white justify-between flex-col",
               className,
             )}
           >

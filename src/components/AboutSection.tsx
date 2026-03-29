@@ -1,6 +1,5 @@
-import Image from "next/image";
 import React from "react";
-import { ScrollArea, SkillsSection } from ".";
+import { SkillsSection } from ".";
 
 export function AboutSection() {
   return (
@@ -9,15 +8,16 @@ export function AboutSection() {
         <h2 className="mb-5">About Me</h2>
 
         <p className="text-sm leading-6 md:text-md text-[#ADB7BE]">
-          I am a motivated Computer Science student with hands-on experience
-          through a range of personal and academic projects. Driven by curiosity
-          and a passion for technology, I've cultivated strong skills in C#,
-          Unity, React, and other JavaScript frameworks. My approach to every
-          project is user-focused, prioritizing intuitive and visually engaging
-          solutions that effectively address real-world challenges. I thrive on
-          learning new tools and collaborating to turn ideas into impactful
-          results, and I am eager to bring my energy and dedication to a
-          professional team.
+          {`
+          I’m a Frontend UI Developer focused on building clean, responsive, and user-centered interfaces that translate designs into real, production-ready experiences.
+         `}
+       
+          {` I specialize in HTML, CSS, Tailwind, and React/Next.js, with a strong emphasis on layout, responsiveness, and visual consistency across devices. My approach is detail-oriented — I care about proximity, hierarchy, and interaction states just as much as I do functionality.`}
+          <br />
+          <br />
+          {`Through my projects, I’ve built full UI systems including educational platforms, and multi-device experiences. I enjoy taking a design or concept and turning it into an interface that feels polished and cohesive.`}
+        
+          {` I’m currently looking to contribute to a team where I can focus on building high-quality UI and continue refining my craft as a frontend developer.`}
         </p>
       </section>
 
