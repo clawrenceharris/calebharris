@@ -15,7 +15,7 @@ export default function ResumePage() {
         <header className="shrink-0 px-4 py-4 md:px-8 md:py-6 border-b border-border/30 bg-primary-foreground/70 backdrop-blur-md">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
-              <Link href="/" className="link-outline">
+              <Link href="/" className="link-outline px-4 py-2">
                 <ArrowLeft className="size-4" />
                 Back
               </Link>
@@ -29,7 +29,7 @@ export default function ResumePage() {
 
             <div className="flex flex-wrap gap-2">
               <Link
-                href="/CalebHarris.pdf"
+                href="/Caleb Harris.pdf"
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-black/30 px-4 py-2 text-sm font-bold text-foreground hover:bg-black/40 transition-colors"
               >
@@ -37,7 +37,7 @@ export default function ResumePage() {
                 Download
               </Link>
               <Link
-                href="/CalebHarris.pdf"
+                href="/Caleb Harris.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-primary-500 px-4 py-2 text-sm font-bold text-white hover:bg-primary-600 transition-colors"
@@ -52,7 +52,7 @@ export default function ResumePage() {
         <div className="flex-1 overflow-hidden p-4 md:p-8">
           <div className="h-full w-full overflow-hidden rounded-xl border border-border/30 bg-black/10">
             <object
-              data="/CalebHarris.pdf#view=FitH&toolbar=0&navpanes=0"
+              data="/Caleb Harris.pdf#view=FitH&toolbar=0&navpanes=0"
               type="application/pdf"
               className="h-full w-full"
             >
@@ -62,7 +62,7 @@ export default function ResumePage() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Link
-                    href="/CalebHarris.pdf"
+                    href="/Caleb Harris.pdf"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-primary-500 px-4 py-2 text-sm font-bold text-primary-foreground hover:bg-primary-600 transition-colors"
@@ -71,7 +71,7 @@ export default function ResumePage() {
                     Open PDF
                   </Link>
                   <Link
-                    href="/CalebHarris.pdf"
+                    href="/Caleb Harris.pdf"
                     download
                     className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-black/30 px-4 py-2 text-sm font-bold text-foreground hover:bg-black/40 transition-colors"
                   >

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useMenu } from "@/app/providers";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./sheet";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "./sheet";
 import TypingText from "./typing-text";
 
 function SidebarContent({ isMobile }: { isMobile?: boolean }) {
@@ -135,6 +135,9 @@ export function AppSidebar({ className }: { className?: string }) {
             side="left"
             className="z-9999 border-input p-4  bg-[#1a1a1a] "
           >
+            <SheetDescription className="sr-only">
+              Caleb Harris
+            </SheetDescription>
             <SidebarContent isMobile />
           </SheetContent>
         </>

@@ -18,6 +18,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm as useFormspree } from "@formspree/react";
 import { Check, Loader2 } from "lucide-react";
+import Image from "next/image";
 
 const contactSchema = z.object({
   name: z.string().min(1, "This field is required"),
@@ -56,7 +57,7 @@ export function ContactSection() {
   }
   return (
     <section className="grid lg:grid-cols-2 gap-3 lg:gap-7">
-      <div>
+      <div className="flex flex-col ">
         <h2 className="text-2xl font-bold text-white mb-4">
           Let&apos;s Connect
         </h2>
@@ -65,6 +66,7 @@ export function ContactSection() {
           open. Whether you have a question or just want to say hi, feel free to
           send a message!
         </p>
+        <Image className="self-center"  src="/images/hero-image.png" alt="Caleb Harris" width={300} height={300} />
       </div>
       <div>
         <Form
