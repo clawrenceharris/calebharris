@@ -74,7 +74,7 @@ export default function HomePage() {
       <AppSidebar />
       <div className="w-full h-full p-6 pt-15 md:pt-6">
         <main className="shadow-md border-muted border flex-1 w-full shadow-black/50 bg-primary-foreground rounded-2xl h-full">
-          <div className="overflow-y-auto">
+          <div className="overflow-y-auto p-4">
             {!isMobile && <Navbar />}
             <TabsContent className="container" value="about">
               <AboutSection />
