@@ -22,11 +22,7 @@ export const tools: Record<string, Tool> = {
     name: "Java",
     imageUrl: "https://i.ibb.co/KWFND31/java.png",
   },
-  redux: {
-    id: "5",
-    name: "Redux",
-    imageUrl: "https://cdn.worldvectorlogo.com/logos/redux.svg",
-  },
+
   git: {
     id: "6",
     imageUrl: "https://i.ibb.co/QkNnMjv/Git-icon-svg.png",
@@ -70,21 +66,33 @@ export const tools: Record<string, Tool> = {
     name: "Python",
     imageUrl: "https://i.ibb.co/MZh1pbd/python.png",
   },
-  figma: {
+  express: {
     id: "14",
+    name: "Express",
+    imageUrl: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/express-js-icon.png",
+  },
+  figma: {
+    id: "15",
     name: "Figma",
     imageUrl:
       "https://img.icons8.com/?size=100&id=W0YEwBDDfTeu&format=png&color=000000",
   },
+  
   photoshop: {
-    id: "15",
+    id: "16",
     name: "Photoshop",
     imageUrl: "https://i.ibb.co/hXvhCbh/photoshop-png-logo-3085.png",
   },
 
   sass: {
-    id: "16",
+    id: "17",
     name: "Sass",
     imageUrl: "https://sass-lang.com/assets/img/styleguide/seal-color.png",
   },
+
+  supabase: {
+    id: "18",
+    name: "Supabase",
+    imageUrl: "https://img.icons8.com/?size=100&id=grZaE9tjqDyr&format=png&color=000000g",
+  }
 };
