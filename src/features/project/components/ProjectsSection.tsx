@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { Fragment, useRef } from "react";
 import { ProjectCard } from "@/features/project/components";
 import { useProjects } from "@/features/project/hooks";
 import { AlertTriangle } from "lucide-react";
@@ -54,11 +54,12 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
         className="grid  grid-cols-[repeat(auto-fill,minmax(350px,1fr))] py-7  gap-4"
       >
         {projects.map((project) => (
-          <>
-         {project.active &&  <li key={project.id}>
+          <Fragment key={project.id}>
+         {project.active &&  
+         <li>
             <ProjectCard project={project} onProjectClick={onProjectClick} />
           </li>}
-          </>
+          </Fragment>
         ))}
       </ul>
     </section>

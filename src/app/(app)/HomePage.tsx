@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import React, {  useState } from "react";
 
 import {
   AboutSection,
@@ -15,26 +14,25 @@ import { ProjectModal, ProjectsSection } from "@/features/project/components";
 import { useIsMobile } from "@/hooks";
 import { useMenu } from "@/app/providers";
 
+import { useCallback } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+
 const VALID_TABS = ["about", "projects", "contact"] as const;
+
 type TabValue = (typeof VALID_TABS)[number];
 
 function isValidTab(value: string | null): value is TabValue {
   return value !== null && VALID_TABS.includes(value as TabValue);
 }
 
+
 export default function HomePage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const isMobile = useIsMobile();
+
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
     null,
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { closeMenu, isMenuOpen } = useMenu();
-
-  const activeTab: TabValue = isValidTab(searchParams.get("tab"))
-    ? (searchParams.get("tab") as TabValue)
-    : "about";
 
   const handleProjectClick = (projectId: string) => {
     setSelectedProjectId(projectId);
@@ -48,34 +46,37 @@ export default function HomePage() {
     }
   };
 
-  const handleTabChange = useCallback(
-    (value: string) => {
-      if (isValidTab(value)) {
-        if (isMenuOpen) closeMenu();
-        const params = new URLSearchParams(searchParams.toString());
-        if (value === "about") {
-          params.delete("tab");
-        } else {
-          params.set("tab", value);
+  const searchParams = useSearchParams();
+  const activeTab: TabValue = isValidTab(searchParams.get("tab"))
+    ? (searchParams.get("tab") as TabValue)
+    : "about";
+    const handleTabChange = useCallback(
+      (value: string) => {
+        if (isValidTab(value)) {
+          const params = new URLSearchParams(searchParams.toString());
+          if (value === "about") {
+            params.delete("tab");
+          } else {
+            params.set("tab", value);
+          }
+          const query = params.toString();
+          router.replace(query ? `?${query}` : "/", { scroll: false });
         }
-        const query = params.toString();
-        router.replace(query ? `?${query}` : "/", { scroll: false });
-      }
-    },
-    [isMenuOpen, closeMenu, searchParams, router],
-  );
+      },
+      [searchParams, router],
+    );
 
   return (
     <Tabs
-      value={activeTab}
-      onValueChange={handleTabChange}
-      className="w-full h-full flex flex-row"
+    value={activeTab}
+      className="w-full h-full flex gap-5 flex-row pt-10 pb-17"
     >
-      <AppSidebar />
-      <div className="w-full h-full p-6 pt-15 md:pt-6">
+     <Navbar onTabChange={handleTabChange} />
+
+      <AppSidebar onTabChange={handleTabChange} />
+      <div className="w-full h-full">
         <main className="shadow-md border-muted border flex-1 w-full shadow-black/50 bg-primary-foreground rounded-2xl h-full">
           <div className="overflow-y-auto p-4">
-            {!isMobile && <Navbar />}
             <TabsContent className="container" value="about">
               <AboutSection />
             </TabsContent>
