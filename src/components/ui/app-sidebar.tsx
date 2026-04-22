@@ -22,6 +22,7 @@ function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
           <div className="rounded-full relative size-30 md:size-50 overflow-hidden border-4 border-primary-500 bg-black">
             <Image
               src="/images/me.png"
+              loading="eager"
               alt="Caleb Harris"
               width={160}
               height={160}

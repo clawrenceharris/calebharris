@@ -35,10 +35,11 @@ export function ProjectCard({ project, onProjectClick }: ProjectCardProps) {
               )}
 
               <Image
-                src={project.featuredImage}
+                src={`/projects/${project.slug}/1.png`}
                 alt={project.title}
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
+                loading="eager"
+                sizes="(max-width: 768px) h-auto w-auto 100vw, 33vw"
                 className={[
                   "object-cover transition-opacity duration-300",
                   isImageLoaded ? "opacity-100" : "opacity-0",

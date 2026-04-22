@@ -5,6 +5,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  ScrollArea,
 } from "./ui";
 
 interface ModalProps {
@@ -28,21 +29,29 @@ export function Modal({
 }: ModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-full max-w-[calc(100vw-10rem)] max-h-[calc(100vh-10rem)] overflow-y-auto bg-[#1a1a1a] text-white border-[#33353F]">
-        <DialogHeader>
+        <DialogContent className="w-full  max-w-[calc(100vw-10rem)] max-h-[calc(100vh-10rem)] overflow-y-auto  text-white border-[#33353F]">
+       
+        <ScrollArea className='flex max-h-full bg-[#1a1a1a] flex-col overflow-hidden'>
+
+        <DialogHeader className="contents space-y-0 text-left">
           <DialogTitle
             className={`${!showsTitle ? "sr-only" : "text-3xl mb-2"}`}
           >
             {title}
           </DialogTitle>
+         
 
+         
           <DialogDescription
             className={`${!showsDescription ? "sr-only" : ""}`}
           >
             {description}
           </DialogDescription>
+          
+       
         </DialogHeader>
         {children}
+        </ScrollArea>
       </DialogContent>
     </Dialog>
   );

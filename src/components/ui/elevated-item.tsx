@@ -18,6 +18,7 @@ export function ElevatedItem({
     rounded-full pl-0.5 pt-0.5
     bg-neutral-[rgb(29,29,29)]
     text-sm 
+   
     shadow-md
     
     bg-[linear-gradient(145deg,rgba(255,255,255,0.35),rgba(255,255,255,0.10)_35%,rgb(29,29,29))]

@@ -93,11 +93,12 @@ export function ProjectModal({
     >
       <div className="space-y-10">
         {project.featuredImage && (
-          <div className=" relative">
+          <div className="relative">
             <Image
               src={project.featuredImage}
               alt={project.title}
               width={1920}
+              loading="eager"
               className="rounded-2xl"
               height={1080}
             />
@@ -170,12 +171,18 @@ export function ProjectModal({
               <Image
                 key={i}
                 src={image}
-                alt={`${project.title} - Image ${i + 2}`}
+                alt={`${project.title} - Image ${i + 1}`}
                 width={1920}
                 height={1080}
+                loading="eager"
                 className="w-full h-auto rounded-lg"
+                onError={(e) => {
+                  // Hide the image if it fails to load
+                  e.currentTarget.style.display = 'none';
+                }}
               />
             ))}
+   
           </div>
         </div>
       </div>
