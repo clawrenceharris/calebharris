@@ -52,9 +52,8 @@ export const tools: Record<string, Tool> = {
   [ToolName.React]: {
     id: "7",
     name: "React",
-    imageUrl: "https://i.ibb.co/5K9yz4L/react-logo.png",
+    imageUrl: "https://i.ibb.co/NnfKyrvX/react.png",
   },
-
   [ToolName.TypeScript]: {
     id: "8",
     name: "TypeScript",
