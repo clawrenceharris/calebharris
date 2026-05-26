@@ -45,7 +45,7 @@ export const tools: Record<string, Tool> = {
 
   [ToolName.Git]: {
     id: "6",
-    imageUrl: "https://1000logos.net/wp-content/uploads/2023/04/Git-logo-1536x864.png",
+    imageUrl: "https://i.ibb.co/vM4TzXN/pngwing-com-1.png",
     name: "Git",
   },
 
@@ -82,7 +82,7 @@ export const tools: Record<string, Tool> = {
   },
   [ToolName.Python]: {
     id: "13",
-      name: "Python",
+    name: "Python",
     imageUrl: "https://i.ibb.co/MZh1pbd/python.png",
   },
   [ToolName.Express]: {
@@ -100,7 +100,7 @@ export const tools: Record<string, Tool> = {
   [ToolName.Photoshop]: {
     id: "16",
     name: "Photoshop",
-    imageUrl: "https://1000logos.net/wp-content/uploads/2023/04/Photoshop-logo-1536x864.png",
+    imageUrl: "https://i.ibb.co/xP7WPW6/photoshop.png",
   },
 
   [ToolName.Sass]: {
