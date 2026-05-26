@@ -25,8 +25,6 @@ export function ProjectCard({ project, onProjectClick }: ProjectCardProps) {
         role="button"
       >
         <div className="relative w-full h-full overflow-hidden rounded-t-xl">
-          {!!project.featuredImage && (
-            <>
               {!isImageLoaded && (
                 <div className="absolute inset-0 z-10 grid place-items-center bg-black/20">
                   <Loader2 className="animate-spin text-white/80" />
@@ -46,8 +44,7 @@ export function ProjectCard({ project, onProjectClick }: ProjectCardProps) {
                 ].join(" ")}
                 onLoad={() => setIsImageLoaded(true)}
               />
-            </>
-          )}
+           
         </div>
 
         <CardContent className="text-white rounded-b-xl  pb-5 px-4">

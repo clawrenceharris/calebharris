@@ -3,13 +3,14 @@
 import Image from "next/image";
 
 import {} from "@/components/ToolItem";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, Loader2 } from "lucide-react";
 import { useProject } from "@/features/project/hooks";
 import { tools } from "@/lib/constants/tools";
 import Link from "next/link";
 import { MorphyButton } from "@/components/ui";
 import { BulletItem } from "@/features/project/domain";
 import { BulletList, Callout, Modal, Skeleton, ToolItem } from "@/components";
+import { useState } from "react";
 
 interface ProjectModalProps {
   projectId: string;
@@ -23,6 +24,7 @@ export function ProjectModal({
   onOpenChange,
 }: ProjectModalProps) {
   const { project, error, isLoading } = useProject(projectId);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   if (isLoading) {
     return (
       <Modal
@@ -92,18 +94,28 @@ export function ProjectModal({
       open={open}
     >
       <div className="space-y-10">
-        {project.featuredImage && (
+          <>
           <div className="relative">
+            {!isImageLoaded && (
+              <div className="absolute inset-0 z-10 grid place-items-center bg-black/20">
+                <Loader2 className="animate-spin text-white/80" />
+                <span className="sr-only">Loading image</span>
+              </div>
+            )}
             <Image
-              src={project.featuredImage}
+              src={`/projects/${project.slug}/1.png`}
               alt={project.title}
               width={1920}
               loading="eager"
-              className="rounded-2xl"
+              className={[
+                "rounded-2xl transition-opacity duration-300",
+                isImageLoaded ? "opacity-100" : "opacity-0",
+              ].join(" ")}
               height={1080}
+              onLoad={() => setIsImageLoaded(true)}
             />
           </div>
-        )}
+        </>
 
         <div>
           <div className="space-y-5 bg-secondary-foreground p-4 rounded-2xl">
