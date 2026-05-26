@@ -6,7 +6,7 @@ export const enum ToolName {
   Java = "java",
   Git = "git",
   React = "react",
-    TypeScript = "typescript",
+  TypeScript = "typescript",
   CSharp = "csharp",
   CSS = "css",
   HTML = "html",
@@ -28,7 +28,7 @@ export const tools: Record<string, Tool> = {
   },
   [ToolName.Tailwind]: {
     id: "2",
-    imageUrl: "https://i.ibb.co/tJ70m5g/Tailwind-CSS-Logo-svg.png",
+    imageUrl: "https://i.ibb.co/VsH2XG9/pngwing-com.png",
     name: "Tailwind",
   },
 
@@ -45,7 +45,7 @@ export const tools: Record<string, Tool> = {
 
   [ToolName.Git]: {
     id: "6",
-    imageUrl: "https://i.ibb.co/QkNnMjv/Git-icon-svg.png",
+    imageUrl: "https://1000logos.net/wp-content/uploads/2023/04/Git-logo-1536x864.png",
     name: "Git",
   },
 
@@ -78,7 +78,7 @@ export const tools: Record<string, Tool> = {
   [ToolName.NextJS]: {
     id: "12",
     name: "NextJS",
-    imageUrl: "https://i.ibb.co/QrhgVcR/nextjs-256x256.png",
+    imageUrl: "https://i.ibb.co/qL8Cm1nv/icons8-nextjs-96.png",
   },
   [ToolName.Python]: {
     id: "13",
@@ -100,7 +100,7 @@ export const tools: Record<string, Tool> = {
   [ToolName.Photoshop]: {
     id: "16",
     name: "Photoshop",
-    imageUrl: "https://i.ibb.co/hXvhCbh/photoshop-png-logo-3085.png",
+    imageUrl: "https://1000logos.net/wp-content/uploads/2023/04/Photoshop-logo-1536x864.png",
   },
 
   [ToolName.Sass]: {
