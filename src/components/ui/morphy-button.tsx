@@ -81,13 +81,13 @@ const MorphyButton = React.forwardRef<HTMLButtonElement, MorphyButtonProps>(
           className={cn(
             "absolute inset-0 transition-colors duration-700 ease-in-out rounded-[inherit]",
             active
-              ? "bg-primary-500"
-              : "bg-black dark:bg-white"
+              ? "bg-white"
+              : "bg-primary-500"
           )}
         />
         <div
           className={cn(
-            "absolute top-1/2 -translate-y-1/2 rounded-full transition-all duration-700 ease-in-out bg-primary-500 dark:bg-white",
+            "absolute top-1/2 -translate-y-1/2 rounded-full transition-all duration-700 ease-in-out bg-primary-500",
             "w-[200%] h-[200%] -left-full",
             buttonSize === "sm" &&
               (active

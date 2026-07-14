@@ -31,14 +31,14 @@ export function Navbar({onTabChange}: {onTabChange: (value: string) => void}) {
   ];
 
   return (
-    <div className="absolute bottom-0 left-0 right-0 z-50 w-full flex justify-center items-end pb-4">
+    <div className="absolute  bottom-0 left-0 right-0 z-50 w-full flex justify-center items-end pb-4">
 
       <MagicDock
-        className="w-full items-center justify-center"
+        className="w-full items-center bg-primary-foreground justify-center"
         items={dockItems}
         variant="tooltip"
         magnification={70}
-        baseItemSize={48}
+        baseItemSize={58}
         distance={0}
       />
     </div>

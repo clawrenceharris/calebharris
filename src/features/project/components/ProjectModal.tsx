@@ -103,7 +103,7 @@ export function ProjectModal({
               </div>
             )}
             <Image
-              src={`/projects/${project.slug}/1.png`}
+              src={project.featuredImage}
               alt={project.title}
               width={1920}
               loading="eager"

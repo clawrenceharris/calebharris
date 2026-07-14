@@ -6,7 +6,7 @@ import {
   AlertTriangle,
   ArrowLeft,
   ExternalLink,
-  FileExclamationPoint,
+  FileWarning,
   Loader2,
 } from "lucide-react";
 import Link from "next/link";
@@ -76,7 +76,7 @@ export default function Page() {
                 <Callout
                   title="Demo unavailable"
                   description="This project is not set up to preview yet."
-                  icon={<FileExclamationPoint />}
+                  icon={<FileWarning />}
                   variant="warning"
                 />
               </div>

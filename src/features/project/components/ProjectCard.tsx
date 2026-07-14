@@ -33,7 +33,7 @@ export function ProjectCard({ project, onProjectClick }: ProjectCardProps) {
               )}
 
               <Image
-                src={`/projects/${project.slug}/1.png`}
+                src={project.featuredImage}
                 alt={project.title}
                 fill
                 loading="eager"

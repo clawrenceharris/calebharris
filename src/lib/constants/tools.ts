@@ -16,6 +16,7 @@ export const enum ToolName {
   Figma = "figma",
   Photoshop = "photoshop",
   Sass = "sass",
+  OpenAI = "openai",
   Supabase = "supabase",
   PostgreSQL = "postgresql",
   Prisma = "prisma",
@@ -31,7 +32,11 @@ export const tools: Record<string, Tool> = {
     imageUrl: "https://i.ibb.co/VsH2XG9/pngwing-com.png",
     name: "Tailwind",
   },
-
+  [ToolName.OpenAI]: {
+    id: "3",
+    imageUrl: "https://i.ibb.co/VYK59KmC/openai.png",
+    name: "OpenAI",
+  },
   [ToolName.JavaScript]: {
     id: "3",
     name: "JavaScript",
