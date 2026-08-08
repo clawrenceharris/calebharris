@@ -68,35 +68,33 @@ export default function HomePage() {
   return (
     <Tabs
       value={activeTab}
-      className="flex h-full w-full flex-row gap-5 pt-10 pb-17"
+      className="flex h-full w-full flex-row gap-5 pt-9 pb-17"
     >
       <Navbar onTabChange={handleTabChange} />
 
       <AppSidebar onTabChange={handleTabChange} />
-      <div className="h-full w-full">
-        <main className="border-muted bg-primary-foreground h-full w-full flex-1 rounded-2xl border shadow-md shadow-black/50">
-          <div className="overflow-y-auto p-4">
-            <TabsContent className="container" value="about">
-              <AboutSection />
-            </TabsContent>
+      <main className="border-muted bg-primary-foreground flex h-full min-w-0 flex-1 rounded-2xl border shadow-md shadow-black/50">
+        <div className="w-full min-w-0 overflow-x-hidden overflow-y-auto p-4">
+          <TabsContent className="container" value="about">
+            <AboutSection />
+          </TabsContent>
 
-            <TabsContent className="container" value="projects">
-              <ProjectsSection onProjectClick={handleProjectClick} />
-            </TabsContent>
+          <TabsContent className="container w-full min-w-0" value="projects">
+            <ProjectsSection onProjectClick={handleProjectClick} />
+          </TabsContent>
 
-            <TabsContent className="container" value="contact">
-              <ContactSection />
-            </TabsContent>
-            {selectedProjectId && (
-              <ProjectModal
-                projectId={selectedProjectId}
-                open={isModalOpen}
-                onOpenChange={handleModalClose}
-              />
-            )}
-          </div>
-        </main>
-      </div>
+          <TabsContent className="container" value="contact">
+            <ContactSection />
+          </TabsContent>
+          {selectedProjectId && (
+            <ProjectModal
+              projectId={selectedProjectId}
+              open={isModalOpen}
+              onOpenChange={handleModalClose}
+            />
+          )}
+        </div>
+      </main>
     </Tabs>
   );
 }

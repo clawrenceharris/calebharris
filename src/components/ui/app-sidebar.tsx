@@ -14,6 +14,8 @@ import {
   SheetTrigger,
 } from "./sheet";
 import TypingText from "./typing-text";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "@/hooks/use-media-query";
 type SidebarContentProps = {
   isMobile?: boolean;
   onTabChange: (value: string) => void;
@@ -23,7 +25,7 @@ function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
     <div className="flex h-full flex-col justify-between">
       <div className="relative mt-10 flex flex-col items-center gap-3">
         <div className="relative">
-          <div className="border-primary-500 relative size-30 overflow-hidden rounded-full border-4 bg-black md:size-50">
+          <div className="border-primary-500 relative size-30 overflow-hidden rounded-full border-4 bg-black md:size-40">
             <Image
               src="/images/me.png"
               loading="eager"
@@ -116,15 +118,15 @@ type AppSidebarProps = {
   onTabChange: (value: string) => void;
 };
 export function AppSidebar({ className, onTabChange }: AppSidebarProps) {
-  const isMobile = useIsMobile();
   const { isMenuOpen, toggleMenu } = useMenu();
+  const isMobile = useIsMobile();
 
   return (
     <Sheet open={isMenuOpen} onOpenChange={toggleMenu}>
       {!isMobile ? (
         <aside
           className={cn(
-            "border-muted bg-primary-foreground flex h-full w-full max-w-70 shrink-0 flex-col justify-between overflow-auto rounded-2xl border p-4 text-white shadow-md shadow-black/50 md:px-5 md:py-3",
+            "border-muted bg-primary-foreground flex h-full w-full max-w-65 shrink-0 flex-col justify-between overflow-auto rounded-2xl border p-4 text-white shadow-md shadow-black/50 md:px-5 md:py-3 lg:max-w-70",
             className,
           )}
         >

@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Project } from "@/features/project/domain";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui";
 import { Loader2, Star } from "lucide-react";
-import { Image as ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 interface ProjectCardProps {
   project: Project;
@@ -33,8 +32,10 @@ export function ProjectCard({
         "border-muted relative h-75 w-full cursor-pointer rounded-2xl border-2 p-0 text-left",
         className,
       )}
-      role="button"
     >
+      <div className="absolute top-4 left-4 z-10 rounded-full bg-black/20 px-3 py-1.5 backdrop-blur-md">
+        <p className="text-sm font-medium text-white">{project.projectType}</p>
+      </div>
       {project.favorited && (
         <Star
           fill="currentColor"
@@ -49,22 +50,18 @@ export function ProjectCard({
           </div>
         )}
 
-        {project.featuredImage ? (
-          <Image
-            src={project.featuredImage}
-            alt={project.title}
-            fill
-            loading="eager"
-            sizes="(max-width: 768px) h-auto w-auto 100vw, 33vw"
-            className={[
-              "object-cover transition-opacity duration-300",
-              isImageLoaded ? "opacity-100" : "opacity-0",
-            ].join(" ")}
-            onLoad={() => setIsImageLoaded(true)}
-          />
-        ) : (
-          <ImageIcon className="text-muted-foreground size-9" />
-        )}
+        <Image
+          src={project.featuredImage ?? "/images/placeholder.png"}
+          alt={project.title}
+          fill
+          loading="eager"
+          sizes="(max-width: 768px) h-auto w-auto 100vw, 33vw"
+          className={[
+            "object-cover transition-opacity duration-300",
+            isImageLoaded ? "opacity-100" : "opacity-0",
+          ].join(" ")}
+          onLoad={() => setIsImageLoaded(true)}
+        />
       </div>
 
       <CardContent className="rounded-b-xl px-4 pb-5 text-white">

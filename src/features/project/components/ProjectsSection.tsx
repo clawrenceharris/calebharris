@@ -45,20 +45,23 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
   }
 
   return (
-    <section className="h-full w-full space-y-8">
+    <section className="min-w-0 space-y-8">
       <h2 className="sticky mb-8 text-4xl font-bold text-white">My Projects</h2>
 
-      <section>
+      <section className="min-w-0">
         <div className="flex items-center gap-2">
           <Star fill="currentColor" className="size-5 text-white" />
           <h3 className="text-lg font-medium text-white">Favorites</h3>
         </div>
-        <ScrollArea className="min-h-[60vh] w-full py-4">
-          <ul className="flex w-full">
+        <ScrollArea className="w-full min-w-0 py-4">
+          <ul className="flex w-max gap-3 md:gap-6">
             {projects
               .filter((b) => b.favorited)
               .map((project) => (
-                <li key={project.id} className="w-full shrink-0 px-3">
+                <li
+                  key={project.id}
+                  className="w-[min(100vw-6rem,28rem)] shrink-0"
+                >
                   <ProjectCard
                     className="h-[60vh]"
                     project={project}

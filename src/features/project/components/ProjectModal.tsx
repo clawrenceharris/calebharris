@@ -34,15 +34,15 @@ export function ProjectModal({
         showsDescription={false}
       >
         <div className="space-y-10">
-          <Skeleton className="w-full h-auto aspect-video rounded-2xl" />
+          <Skeleton className="aspect-video h-auto w-full rounded-2xl" />
 
           <div>
-            <div className="space-y-5 bg-secondary-foreground p-4 rounded-2xl">
-              <Skeleton className="w-30 h-38" />
+            <div className="bg-secondary-foreground space-y-5 rounded-2xl p-4">
+              <Skeleton className="h-38 w-30" />
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-10 px-4">
               {Array(4).map((_, i) => (
                 <Skeleton key={i} className="h-8 w-full" />
@@ -51,7 +51,7 @@ export function ProjectModal({
 
             <div className="space-y-4">
               {Array(4).map((_, i) => (
-                <Skeleton key={i} className="w-full h-auto aspect-video" />
+                <Skeleton key={i} className="aspect-video h-auto w-full" />
               ))}
             </div>
           </div>
@@ -80,7 +80,7 @@ export function ProjectModal({
   }
   if (!project) {
     return (
-      <div className="flex justify-center items-center py-8">
+      <div className="flex items-center justify-center py-8">
         <p>Project Not Found</p>
       </div>
     );
@@ -94,8 +94,13 @@ export function ProjectModal({
       open={open}
     >
       <div className="space-y-10">
-          <>
+        <>
           <div className="relative">
+            <div className="absolute top-4 left-4 z-10 rounded-full bg-black/20 px-3 py-1.5 backdrop-blur-md">
+              <p className="text-sm font-medium text-white">
+                {project.projectType}
+              </p>
+            </div>
             {!isImageLoaded && (
               <div className="absolute inset-0 z-10 grid place-items-center bg-black/20">
                 <Loader2 className="animate-spin text-white/80" />
@@ -103,7 +108,7 @@ export function ProjectModal({
               </div>
             )}
             <Image
-              src={project.featuredImage}
+              src={project.featuredImage || "/images/placeholder.png"}
               alt={project.title}
               width={1920}
               loading="eager"
@@ -118,7 +123,7 @@ export function ProjectModal({
         </>
 
         <div>
-          <div className="space-y-5 bg-secondary-foreground p-4 rounded-2xl">
+          <div className="bg-secondary-foreground space-y-5 rounded-2xl p-4">
             <div className="space-y-3">
               <p className="text-muted-foreground text-nowrap italic">
                 {project.tagline}
@@ -132,14 +137,14 @@ export function ProjectModal({
                 )}
               </p>
               <span className="sr-only">Tools Used</span>
-              <div className="flex flex-wrap gap-2 ">
+              <div className="flex flex-wrap gap-2">
                 {project.tools.map((tool) => (
                   <ToolItem tool={tools[tool]} key={tools[tool].id} />
                 ))}
               </div>
             </div>
             <p className="text-foreground">{project.description}</p>
-            <div className="flex gap-2 items-center">
+            <div className="flex items-center gap-2">
               {project.demoLink && (
                 <MorphyButton>
                   <Link href={`/try-it-out/${project.id}`}>Try it out!</Link>
@@ -149,7 +154,7 @@ export function ProjectModal({
                 <Link
                   target="_blank"
                   rel="noreferrer"
-                  className="link-outline size-10 p-0 flex items-center justify-center bg-black/10 hover:bg-primary-foreground border-white/10"
+                  className="link-outline hover:bg-primary-foreground flex size-10 items-center justify-center border-white/10 bg-black/10 p-0"
                   href={project.github}
                 >
                   <Image
@@ -165,7 +170,7 @@ export function ProjectModal({
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-10 px-4">
             <BulletList
               heading="Key Features"
@@ -187,14 +192,13 @@ export function ProjectModal({
                 width={1920}
                 height={1080}
                 loading="eager"
-                className="w-full h-auto rounded-lg"
+                className="h-auto w-full rounded-lg"
                 onError={(e) => {
                   // Hide the image if it fails to load
-                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.style.display = "none";
                 }}
               />
             ))}
-   
           </div>
         </div>
       </div>
