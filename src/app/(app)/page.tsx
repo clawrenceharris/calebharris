@@ -6,12 +6,9 @@ import { TooltipProvider } from "@/components";
 
 export default function Home() {
   return (
-   
-
-    
     <Suspense
       fallback={
-        <div className="flex h-dvh w-full items-center justify-center text-muted-foreground">
+        <div className="text-muted-foreground flex h-dvh w-full items-center justify-center">
           Loading...
         </div>
       }
@@ -20,6 +17,5 @@ export default function Home() {
         <HomePage />
       </TooltipProvider>
     </Suspense>
-   
   );
 }

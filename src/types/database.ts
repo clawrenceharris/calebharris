@@ -21,7 +21,8 @@ export type Database = {
           demo_link: string | null
           description: string
           end_year: number | null
-          featured_image: string
+          favorited: boolean | null
+          featured_image: string | null
           github: string | null
           id: string
           images: string[]
@@ -42,7 +43,8 @@ export type Database = {
           demo_link?: string | null
           description?: string
           end_year?: number | null
-          featured_image: string
+          favorited?: boolean | null
+          featured_image?: string | null
           github?: string | null
           id?: string
           images?: string[]
@@ -63,7 +65,8 @@ export type Database = {
           demo_link?: string | null
           description?: string
           end_year?: number | null
-          featured_image?: string
+          favorited?: boolean | null
+          featured_image?: string | null
           github?: string | null
           id?: string
           images?: string[]

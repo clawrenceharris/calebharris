@@ -6,34 +6,38 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useMenu } from "@/app/providers";
-import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "./sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "./sheet";
 import TypingText from "./typing-text";
 type SidebarContentProps = {
   isMobile?: boolean;
   onTabChange: (value: string) => void;
-}
+};
 function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
   return (
-    <div className="flex flex-col justify-between h-full">
-
-      <div className="relative mt-10 items-center gap-3 flex flex-col">
+    <div className="flex h-full flex-col justify-between">
+      <div className="relative mt-10 flex flex-col items-center gap-3">
         <div className="relative">
-
-          <div className="rounded-full relative size-30 md:size-50 overflow-hidden border-4 border-primary-500 bg-black">
+          <div className="border-primary-500 relative size-30 overflow-hidden rounded-full border-4 bg-black md:size-50">
             <Image
               src="/images/me.png"
               loading="eager"
               alt="Caleb Harris"
               width={160}
               height={160}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
             />
           </div>
-          <div className="absolute bottom-0 right-5 bg-primary-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold border-2 border-[#1a1a1a]">
+          <div className="bg-primary-500 absolute right-5 bottom-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1a1a1a] font-bold text-white">
             CH
           </div>
         </div>
-        <div className="text-2xl font-bold mt-2 text-center">
+        <div className="mt-2 text-center text-2xl font-bold">
           {isMobile ? (
             <SheetTitle>
               <TypingText
@@ -53,7 +57,7 @@ function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
         </div>
 
         {/* Social Links */}
-        <div className="flex gap-4  items-center">
+        <div className="flex items-center gap-4">
           <Link href="https://github.com/clawrenceharris">
             <Image
               src="/icons/github-icon.svg"
@@ -67,7 +71,7 @@ function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
             href="https://www.linkedin.com/in/caleb-harris-ba4169209/"
             target="_blank"
             rel="noreferrer"
-            className="hover:opacity-80 transition-opacity"
+            className="transition-opacity hover:opacity-80"
           >
             <Image
               src="/icons/linkedin-icon.svg"
@@ -81,7 +85,7 @@ function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
 
       <div>
         {/* Contact Information */}
-        <ItemGroup className="flex gap-3 flex-col">
+        <ItemGroup className="flex flex-col gap-3">
           <Link href="mailto:clawrenceharris@gmail.com">
             <InfoItem
               title="Email"
@@ -110,7 +114,7 @@ function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
 type AppSidebarProps = {
   className?: string;
   onTabChange: (value: string) => void;
-}
+};
 export function AppSidebar({ className, onTabChange }: AppSidebarProps) {
   const isMobile = useIsMobile();
   const { isMenuOpen, toggleMenu } = useMenu();
@@ -118,17 +122,17 @@ export function AppSidebar({ className, onTabChange }: AppSidebarProps) {
   return (
     <Sheet open={isMenuOpen} onOpenChange={toggleMenu}>
       {!isMobile ? (
-          <aside
-            className={cn(
-              "shadow-md h-full flex-1 overflow-auto p-4 border-muted border md:px-5 md:py-3 w-full md:min-w-70  shadow-black/50   bg-primary-foreground rounded-2xl flex  text-white justify-between flex-col",
-              className,
-            )}
-          >
-            <SidebarContent onTabChange={onTabChange} />
-          </aside>
+        <aside
+          className={cn(
+            "border-muted bg-primary-foreground flex h-full w-full max-w-70 shrink-0 flex-col justify-between overflow-auto rounded-2xl border p-4 text-white shadow-md shadow-black/50 md:px-5 md:py-3",
+            className,
+          )}
+        >
+          <SidebarContent onTabChange={onTabChange} />
+        </aside>
       ) : (
         <>
-          <div className="fixed w-full border-b border-muted justify-baseline px-3 bg-primary-foreground top-0 rounded-none left-0">
+          <div className="border-muted bg-primary-foreground fixed top-0 left-0 w-full justify-baseline rounded-none border-b px-3">
             <SheetTrigger asChild>
               <Button
                 className="hover:bg-transparent"
@@ -141,7 +145,7 @@ export function AppSidebar({ className, onTabChange }: AppSidebarProps) {
           </div>
           <SheetContent
             side="left"
-            className="z-9999 border-input p-4  bg-[#1a1a1a] "
+            className="border-input z-99 bg-[#1a1a1a] p-4"
           >
             <SheetDescription className="sr-only">
               Caleb Harris

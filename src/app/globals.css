@@ -80,27 +80,23 @@
     @apply text-xl! font-bold;
   }
   main {
-    @apply flex flex-col h-dvh;
+    @apply flex h-dvh flex-col;
   }
 }
 
 @layer components {
   .item-elevated {
-    @apply cursor-pointer
-    border-[rgb(27,27,27)] border
- relative inline-flex items-center
- rounded-full pl-0.5 pt-0.5
- bg-[rgb(29,29,29)]
- text-sm 
- shadow-md
- bg-[linear-gradient(145deg,rgba(255,255,255,0.35),rgba(255,255,255,0.10)_35%,rgb(29,29,29))];
+    @apply relative inline-flex cursor-pointer items-center rounded-full border border-[rgb(27,27,27)] bg-[rgb(29,29,29)] bg-[linear-gradient(145deg,rgba(255,255,255,0.35),rgba(255,255,255,0.10)_35%,rgb(29,29,29))] pt-0.5 pl-0.5 text-sm shadow-md;
   }
 
   .container {
-    @apply p-5 pt-10  md:px-8 flex-1;
+    @apply flex-1 overflow-hidden;
   }
   .link-outline {
-    @apply inline-flex items-center gap-2 rounded-full border border-border/30 bg-secondary-foreground/60 hover:bg-secondary-foreground/90 transition-colors;
+    @apply border-border/30 bg-secondary-foreground/60 hover:bg-secondary-foreground/90 inline-flex items-center gap-2 rounded-full border transition-colors;
+  }
+  .faded-row {
+    @apply mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)];
   }
 }
 :root {

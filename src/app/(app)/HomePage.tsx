@@ -1,6 +1,6 @@
 "use client";
 
-import React, {  useState } from "react";
+import React, { useState } from "react";
 
 import {
   AboutSection,
@@ -24,7 +24,6 @@ type TabValue = (typeof VALID_TABS)[number];
 function isValidTab(value: string | null): value is TabValue {
   return value !== null && VALID_TABS.includes(value as TabValue);
 }
-
 
 export default function HomePage() {
   const router = useRouter();
@@ -50,32 +49,32 @@ export default function HomePage() {
   const activeTab: TabValue = isValidTab(searchParams.get("tab"))
     ? (searchParams.get("tab") as TabValue)
     : "about";
-    const handleTabChange = useCallback(
-      (value: string) => {
-        if (isValidTab(value)) {
-          const params = new URLSearchParams(searchParams.toString());
-          if (value === "about") {
-            params.delete("tab");
-          } else {
-            params.set("tab", value);
-          }
-          const query = params.toString();
-          router.replace(query ? `?${query}` : "/", { scroll: false });
+  const handleTabChange = useCallback(
+    (value: string) => {
+      if (isValidTab(value)) {
+        const params = new URLSearchParams(searchParams.toString());
+        if (value === "about") {
+          params.delete("tab");
+        } else {
+          params.set("tab", value);
         }
-      },
-      [searchParams, router],
-    );
+        const query = params.toString();
+        router.replace(query ? `?${query}` : "/", { scroll: false });
+      }
+    },
+    [searchParams, router],
+  );
 
   return (
     <Tabs
-    value={activeTab}
-      className="w-full h-full flex gap-5 flex-row pt-10 pb-17"
+      value={activeTab}
+      className="flex h-full w-full flex-row gap-5 pt-10 pb-17"
     >
-     <Navbar onTabChange={handleTabChange} />
+      <Navbar onTabChange={handleTabChange} />
 
       <AppSidebar onTabChange={handleTabChange} />
-      <div className="w-full h-full">
-        <main className="shadow-md border-muted border flex-1 w-full shadow-black/50 bg-primary-foreground rounded-2xl h-full">
+      <div className="h-full w-full">
+        <main className="border-muted bg-primary-foreground h-full w-full flex-1 rounded-2xl border shadow-md shadow-black/50">
           <div className="overflow-y-auto p-4">
             <TabsContent className="container" value="about">
               <AboutSection />

@@ -3,8 +3,8 @@
 import React, { Fragment, useRef } from "react";
 import { ProjectCard } from "@/features/project/components";
 import { useProjects } from "@/features/project/hooks";
-import { AlertTriangle } from "lucide-react";
-import { Callout, Skeleton } from "@/components";
+import { AlertTriangle, List, Star } from "lucide-react";
+import { Callout, ScrollArea, ScrollBar, Skeleton } from "@/components";
 
 interface ProjectsSectionProps {
   onProjectClick?: (projectId: string) => void;
@@ -14,18 +14,17 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
   const listRef = useRef(null);
   const { projects, isLoading, error } = useProjects();
 
-
   if (isLoading) {
     return (
       <>
         <h2 className="mb-8">My Projects</h2>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] py-7  gap-4">
-          <Skeleton className="w-full h-70 rounded-xl" />
-          <Skeleton className="w-full h-70 rounded-xl" />
-          <Skeleton className="w-full h-70 rounded-xl" />
-          <Skeleton className="w-full h-70 rounded-xl" />
-          <Skeleton className="w-full h-70 rounded-xl" />
-          <Skeleton className="w-full h-70 rounded-xl" />
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-4 py-7">
+          <Skeleton className="h-70 w-full rounded-xl" />
+          <Skeleton className="h-70 w-full rounded-xl" />
+          <Skeleton className="h-70 w-full rounded-xl" />
+          <Skeleton className="h-70 w-full rounded-xl" />
+          <Skeleton className="h-70 w-full rounded-xl" />
+          <Skeleton className="h-70 w-full rounded-xl" />
         </div>
       </>
     );
@@ -46,22 +45,55 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
   }
 
   return (
-    <section>
-      <h2 className="sticky text-4xl font-bold text-white mb-8">My Projects</h2>
-      
-      <ul
-        ref={listRef}
-        className="grid  grid-cols-[repeat(auto-fill,minmax(350px,1fr))] py-7  gap-4"
-      >
-        {projects.map((project) => (
-          <Fragment key={project.id}>
-         {project.active &&  
-         <li>
-            <ProjectCard project={project} onProjectClick={onProjectClick} />
-          </li>}
-          </Fragment>
-        ))}
-      </ul>
+    <section className="h-full w-full space-y-8">
+      <h2 className="sticky mb-8 text-4xl font-bold text-white">My Projects</h2>
+
+      <section>
+        <div className="flex items-center gap-2">
+          <Star fill="currentColor" className="size-5 text-white" />
+          <h3 className="text-lg font-medium text-white">Favorites</h3>
+        </div>
+        <ScrollArea className="min-h-[60vh] w-full py-4">
+          <ul className="flex w-full">
+            {projects
+              .filter((b) => b.favorited)
+              .map((project) => (
+                <li key={project.id} className="w-full shrink-0 px-3">
+                  <ProjectCard
+                    className="h-[60vh]"
+                    project={project}
+                    onProjectClick={onProjectClick}
+                  />
+                </li>
+              ))}
+          </ul>
+
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+      </section>
+      <section>
+        <div className="flex items-center gap-2">
+          <List className="size-5 text-white" />
+          <h3 className="text-lg font-medium text-white">All Projects</h3>
+        </div>
+        <ul
+          ref={listRef}
+          className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-4 py-7"
+        >
+          {projects.map((project) => (
+            <Fragment key={project.id}>
+              {project.active && (
+                <li>
+                  <ProjectCard
+                    project={project}
+                    onProjectClick={onProjectClick}
+                  />
+                </li>
+              )}
+            </Fragment>
+          ))}
+        </ul>
+      </section>
     </section>
   );
 }
