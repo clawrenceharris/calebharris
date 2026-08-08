@@ -57,10 +57,20 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
           <ul className="flex w-max gap-3 md:gap-6">
             {projects
               .filter((b) => b.favorited)
+              .sort((a, b) => {
+                // Compare by startYear descending
+                if (b.startYear !== a.startYear) {
+                  return (b.startYear || 0) - (a.startYear || 0);
+                }
+                // Compare by endYear descending (treat null/undefined as distant future)
+                const aEnd = a.endYear ?? 9999;
+                const bEnd = b.endYear ?? 9999;
+                return bEnd - aEnd;
+              })
               .map((project) => (
                 <li
                   key={project.id}
-                  className="w-[min(100vw-6rem,28rem)] shrink-0"
+                  className="w-[min(100vw-6rem,38rem)] shrink-0"
                 >
                   <ProjectCard
                     className="h-[60vh]"
@@ -83,18 +93,22 @@ export function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
           ref={listRef}
           className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-4 py-7"
         >
-          {projects.map((project) => (
-            <Fragment key={project.id}>
-              {project.active && (
-                <li>
-                  <ProjectCard
-                    project={project}
-                    onProjectClick={onProjectClick}
-                  />
-                </li>
-              )}
-            </Fragment>
-          ))}
+          {projects
+            .sort((a, b) => {
+              return (b.startYear || 0) - (a.startYear || 0);
+            })
+            .map((project) => (
+              <Fragment key={project.id}>
+                {project.active && (
+                  <li>
+                    <ProjectCard
+                      project={project}
+                      onProjectClick={onProjectClick}
+                    />
+                  </li>
+                )}
+              </Fragment>
+            ))}
         </ul>
       </section>
     </section>
