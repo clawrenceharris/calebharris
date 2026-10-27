@@ -147,7 +147,7 @@ export function ProjectModal({
             <div className="flex items-center gap-2">
               {project.demoLink && (
                 <MorphyButton>
-                  <Link href={`/try-it-out/${project.id}`}>Try it out!</Link>
+                  <Link href={project.demoLink}>Try it out!</Link>
                 </MorphyButton>
               )}
               {project.github && (
