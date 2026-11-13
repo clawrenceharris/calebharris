@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 
-import {} from "@/components/ToolItem";
+import {} from "@/components/skill/ToolItem";
 import { AlertTriangle, Loader2 } from "lucide-react";
-import { useProject } from "@/features/project/hooks";
+import { useProject } from "@/hooks";
 import { tools } from "@/lib/constants/tools";
 import Link from "next/link";
 import { MorphyButton } from "@/components/ui";
-import { BulletItem } from "@/features/project/domain";
+import { BulletItem } from "@/types/project";
 import { BulletList, Callout, Modal, Skeleton, ToolItem } from "@/components";
 import { useState } from "react";
 
@@ -147,7 +147,13 @@ export function ProjectModal({
             <div className="flex items-center gap-2">
               {project.demoLink && (
                 <MorphyButton>
-                  <Link target="_blank" rel="noreferrer" href={project.demoLink}>Try it out!</Link>
+                  <Link
+                    target="_blank"
+                    rel="noreferrer"
+                    href={project.demoLink}
+                  >
+                    Try it out!
+                  </Link>
                 </MorphyButton>
               )}
               {project.github && (

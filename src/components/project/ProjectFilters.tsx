@@ -2,9 +2,9 @@
 import {
   ProjectFilterState,
   ProjectTag as ProjectTagType,
-} from "@/features/project/domain";
+} from "@/types/project";
 import { ValueOf } from "next/dist/shared/lib/constants";
-import { ProjectTag } from "@/features/project/components";
+import { ProjectTag } from "@/components/project";
 
 interface ProjectFiltersProps {
   onFilterChange: (filter: ProjectFilterState) => void;
@@ -27,7 +27,7 @@ export const ProjectFilters = ({
   const tags: ProjectTagType[] = ["Game", "UI/UX", "Website"];
 
   return (
-    <div className="text-white p-1 gap-1 w-full max-w-lg mx-auto flex bg-black/20 backdrop-blur-lg border border-muted/50 rounded-full  flex-row items-center mb-6">
+    <div className="border-muted/50 mx-auto mb-6 flex w-full max-w-lg flex-row items-center gap-1 rounded-full border bg-black/20 p-1 text-white backdrop-blur-lg">
       {tags.map((tag) => (
         <ProjectTag
           key={tag}

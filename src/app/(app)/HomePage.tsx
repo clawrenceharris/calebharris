@@ -10,10 +10,7 @@ import {
   Tabs,
 } from "@/components";
 import { TabsContent } from "@/components/ui";
-import { ProjectModal, ProjectsSection } from "@/features/project/components";
-import { useIsMobile } from "@/hooks";
-import { useMenu } from "@/app/providers";
-
+import { ProjectModal, ProjectsSection } from "@/components/project";
 import { useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 

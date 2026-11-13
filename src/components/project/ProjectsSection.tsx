@@ -1,8 +1,8 @@
 "use client";
 
 import React, { Fragment, useRef } from "react";
-import { ProjectCard } from "@/features/project/components";
-import { useProjects } from "@/features/project/hooks";
+import { ProjectCard } from "@/components/project";
+import { useProjects } from "@/hooks";
 import { AlertTriangle, List, Star } from "lucide-react";
 import { Callout, ScrollArea, ScrollBar, Skeleton } from "@/components";
 

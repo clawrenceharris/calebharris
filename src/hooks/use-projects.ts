@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { Project } from "@/features/project/domain";
-import { useProject, useProjectService } from "@/features/project/hooks";
+import { Project } from "@/types/project";
+import { createProjectService } from "@/services/project";
+import { supabase } from "@/lib/supabase/client";
 
 export function useProjects<TSelected = Project[]>(
   select?: (playbooks: Project[]) => TSelected,
 ) {
-  const projectService = useProjectService();
+  const projectService = createProjectService(supabase);
   const {
     data: projects = [],
     isLoading,

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Mail, MapPin, Menu, NotebookPen } from "lucide-react";
+import { Mail, MapPin, Menu, NotebookPen, Phone } from "lucide-react";
 import { Button, InfoItem, ItemGroup, Navbar } from "@/components";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -16,11 +16,14 @@ import {
 import TypingText from "./typing-text";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { useAbout } from "@/hooks";
 type SidebarContentProps = {
   isMobile?: boolean;
   onTabChange: (value: string) => void;
 };
 function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
+  const { about, error, isLoading, refetch } = useAbout();
+
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="relative mt-10 flex flex-col items-center gap-3">
@@ -89,12 +92,17 @@ function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
         {/* Contact Information */}
         <ItemGroup className="flex flex-col gap-3">
           <Link href="mailto:clawrenceharris@gmail.com">
+            <InfoItem title="Email" icon={<Mail />} description={about.email} />
+          </Link>
+
+          <Link href={`tel:${about.phoneNumber}`}>
             <InfoItem
-              title="Email"
-              icon={<Mail />}
-              description="clawrenceharris@gmail.com"
+              title="Phone"
+              icon={<Phone />}
+              description={about.phoneNumber}
             />
           </Link>
+
           <Link href="/resume">
             <InfoItem
               icon={<NotebookPen />}
@@ -102,11 +110,6 @@ function SidebarContent({ isMobile, onTabChange }: SidebarContentProps) {
               description="View Resume"
             />
           </Link>
-          <InfoItem
-            icon={<MapPin />}
-            title="Location"
-            description="Glen Burnie, MD"
-          />
         </ItemGroup>
       </div>
     </div>

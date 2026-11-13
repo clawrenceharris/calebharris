@@ -1,10 +1,12 @@
 import { BaseRepository } from "@/lib/data/base-repository";
-import { camelizeKeys, DomainInsert, DomainModel, DomainUpdate, snakeizeKeys } from "@/lib/data/naming";
 import {
-  Projects,
-  ProjectsInsert,
-  ProjectsUpdate,
-} from "@/types";
+  camelizeKeys,
+  DomainInsert,
+  DomainModel,
+  DomainUpdate,
+  snakeizeKeys,
+} from "@/lib/data/naming";
+import { Projects, ProjectsInsert, ProjectsUpdate } from "@/types";
 import { SupabaseClient } from "@supabase/supabase-js";
 
 /**
@@ -26,7 +28,4 @@ export class ProjectRepository extends BaseRepository<
   constructor(client: SupabaseClient) {
     super(client, "projects");
   }
-
-
 }
-

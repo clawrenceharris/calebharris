@@ -1,6 +1,6 @@
 import { SupabaseClient } from "@supabase/supabase-js";
-import { ProjectRepository } from "@/features/project/data";
-import { Project, ProjectUpdate } from "@/features/project/domain";
+import { ProjectRepository } from "@/repositories/project";
+import { Project, ProjectUpdate } from "@/types/project";
 
 export const createProjectService = (client: SupabaseClient) => {
   const repository = new ProjectRepository(client);

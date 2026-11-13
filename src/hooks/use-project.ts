@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { useProjectService } from "@/features/project/hooks";
+import { createProjectService } from "@/services/project";
+import { supabase } from "@/lib/supabase/client";
 
 export const useProject = (projectId: string) => {
-  const projectService = useProjectService();
+  const projectService = createProjectService(supabase);
   const {
     data: project,
     error,

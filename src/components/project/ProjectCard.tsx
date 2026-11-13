@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Project } from "@/features/project/domain";
+import { Project } from "@/types/project";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui";
 import { Loader2, Star } from "lucide-react";

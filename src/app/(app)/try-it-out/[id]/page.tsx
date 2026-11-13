@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Callout, Skeleton } from "@/components";
-import { useProject } from "@/features/project/hooks";
+import { useProject } from "@/hooks";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -18,9 +18,9 @@ export default function Page() {
   const router = useRouter();
 
   return (
-    <main className="flex-1 w-full h-full overflow-hidden">
-      <section className="mx-auto w-full max-w-5xl h-full overflow-hidden bg-primary-foreground rounded-2xl shadow-md shadow-black/50 flex flex-col">
-        <header className="shrink-0 px-4 py-4 md:px-8 border-b border-border/30 bg-primary-foreground/70 backdrop-blur-md">
+    <main className="h-full w-full flex-1 overflow-hidden">
+      <section className="bg-primary-foreground mx-auto flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-2xl shadow-md shadow-black/50">
+        <header className="border-border/30 bg-primary-foreground/70 shrink-0 border-b px-4 py-4 backdrop-blur-md md:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
               <Button onClick={() => router.back()} variant="outline">
@@ -38,7 +38,7 @@ export default function Page() {
                 href={project.demoLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-primary-500 px-4 py-2 text-sm font-bold hover:bg-primary-600 transition-colors"
+                className="border-border/30 bg-primary-500 hover:bg-primary-600 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold transition-colors"
               >
                 <ExternalLink className="size-4" />
                 Visit Project
@@ -47,14 +47,14 @@ export default function Page() {
           </div>
         </header>
 
-        <div className="flex-1 min-h-0 overflow-hidden p-4 ">
-          <div className="h-full w-full min-h-[500px] overflow-hidden rounded-xl border border-border/30 bg-black/10">
+        <div className="min-h-0 flex-1 overflow-hidden p-4">
+          <div className="border-border/30 h-full min-h-[500px] w-full overflow-hidden rounded-xl border bg-black/10">
             {isLoading ? (
-              <Skeleton className="w-full h-full flex justify-center items-center min-h-[500px] border-0 rounded-xl">
+              <Skeleton className="flex h-full min-h-[500px] w-full items-center justify-center rounded-xl border-0">
                 <Loader2 className="animate-spin" />
               </Skeleton>
             ) : error ? (
-              <div className="flex justify-center items-center min-h-[500px]">
+              <div className="flex min-h-[500px] items-center justify-center">
                 <Callout
                   title="Something went wrong."
                   description="The project failed to load. Please try again later."
@@ -63,7 +63,7 @@ export default function Page() {
                 />
               </div>
             ) : !project ? (
-              <div className="flex justify-center items-center min-h-[500px]">
+              <div className="flex min-h-[500px] items-center justify-center">
                 <Callout
                   title="Project not found."
                   description="The project you are looking for does not exist."
@@ -72,7 +72,7 @@ export default function Page() {
                 />
               </div>
             ) : !project.demoLink ? (
-              <div className="flex justify-center items-center min-h-[500px]">
+              <div className="flex min-h-[500px] items-center justify-center">
                 <Callout
                   title="Demo unavailable"
                   description="This project is not set up to preview yet."
@@ -83,7 +83,7 @@ export default function Page() {
             ) : (
               <iframe
                 src={project.demoLink}
-                className="w-full h-full min-h-[500px] border-0 rounded-xl"
+                className="h-full min-h-[500px] w-full rounded-xl border-0"
                 title={project.title}
               />
             )}

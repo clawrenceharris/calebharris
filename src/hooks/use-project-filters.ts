@@ -1,16 +1,12 @@
 import { useMemo, useState } from "react";
-import { Project, ProjectFilterState } from "@/features/project/domain";
-
-
-
+import { Project, ProjectFilterState } from "@/types/project";
 
 export function useProjectFilters(projects: Project[]) {
   const [filters, setFilters] = useState<ProjectFilterState>({});
-  
+
   const filteredProjects = useMemo(() => {
-      return projects.filter((project) => {
-        
-        if (filters.tag && !project.projectTags.includes(filters.tag)) {
+    return projects.filter((project) => {
+      if (filters.tag && !project.projectTags.includes(filters.tag)) {
         return false;
       }
 
@@ -18,11 +14,9 @@ export function useProjectFilters(projects: Project[]) {
     });
   }, [filters, projects]);
 
- 
-
   return {
-      filteredProjects,
+    filteredProjects,
     setFilters,
-      filters,
+    filters,
   };
 }
